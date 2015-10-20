@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    </head>
+    <body onload="initialize()">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header">
+
+            <nav id="nav">
+                <ul>
+                    <i class="icon logo">ACME</i>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#">DOMAINS</a></li>
+                    <li><a href="#">WEBSITES</a></li>
+                    <li><a href="#">EMAIL</a></li>
+                    <li><a href="#">MARKETING</a></li>
+                    <li><a href="support.html">SUPPORT</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <!-- Banner -->
+        <div>
+             <div class="header_image" >
+                 <p class="float1">DOMAIN + WEBSITE + EMAIL <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AS LOW AS</p>
+                 <p class="float2"> &nbsp; &nbsp; &nbsp;$1.00/MONTH</p>
+             </div>
+
+        </div>
+
+
+        <!-- Highlights -->
+        <section class="wrapper style2">
+            <div class="container">
+                <div class="row 200%">
+                    <section class="4u 12u(narrower)">
+                        <div class="box highlight">
+                            <img src="assets/images/Domains.jpg" alt="Smiley face" height="180" width="180">
+                            <h3>DOMAINS</h3>
+                            <p>Find your perfect domain name.</p>
+                            <p>From classsics like.com and org to new domain names like club,guru, even rocks, we can help you to find the right name for your business.</p>
+
+                        </div>
+                    </section>
+                    <section class="4u 12u(narrower)">
+                        <div class="box highlight">
+                            <img src="assets/images/Websites.jpg" alt="Smiley face" height="180" width="180">
+                            <h3>WEBSITES</h3>
+                            <p>Get your website online today.</p>
+                            <p>Start with of 100s of professional designs,customize it with simple drog & drop tools, and put you new site online with free hosting</p>
+                        </div>
+                    </section>
+                    <section class="4u 12u(narrower)">
+                        <div class="box highlight">
+                            <img src="assets/images//Email.jpg" alt="Smiley face" height="180" width="180">
+                            <h3>Email</h3>
+                            <p>The right email makes a difference.</p>
+                            <p>Did you know that customers are nine times more likely to choose a business that has a professional email address?</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Posts -->
+        <section class="wrapper style3">
+            <div class="container">
+                <div class="row">
+                    <section class="6u 12u(narrower)">
+                        <div class="box post">
+                            <a href="#" class="image left"><img src="assets/images//Marketing.jpg" alt="" /></a>
+                            <div class="inner">
+                                <h3>MARKETING</h3>
+                                <p>Email marketing that's as easy as sending email</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="6u 12u(narrower)">
+                        <div class="box post">
+                            <a href="#" class="image left"><img src="assets/images//Support.jpg" alt="" /></a>
+                            <div class="inner">
+                                <h3>SUPPORT</h3>
+                                <p>We're always here to help Award-winning 24/7 support</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="jwttoken" class="wrapper style1">
+
+        </section>
+
+        <!-- Footer -->
+        <div id="footer">
+            <!-- Icons -->
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+            </ul>
+
+            <!-- Copyright -->
+            <div class="copyright">
+                <ul class="menu">
+                    <li>&copy; Untitled. All rights reserved</li><li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
+    <script>
+       
+
+        function initialize() {
+            var token = localStorage.getItem('token');
+            if(token) {
+                console.log(token);
+                try {
+                    NexusConnectSDK.initialize(token);
+                      console.log('index initialize');
+                      console.log('nexusSdk live',NexusConnectSDK.isLiveHelpActive());
+                      NexusConnectSDK.exitHelp();
+                }catch(e){
+                    console.log(e);
+                }
+            }else{
+                token='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjQzY2JmNWEyLWQ1ZjAtNDcwNC1iOTE3LWQzYTM2YmE1YjhkMCIsImFwcCI6IlBpIiwidmVyIjoiUGkiLCJwbHQiOiJSYWJQaSIsImlhdCI6MTQ0MTQwNzI4MiwiYXVkIjpbImFwcCIsImFwaSJdLCJpc3MiOiJTdXBwb3J0LmNvbSJ9.yzl2CwVfBOsHGqT7bz8oI33bxJNod1HXhlbIiuhXd_k';
+                 try {
+                    NexusConnectSDK.initialize(token);
+                    localStorage.setItem('token',token);
+                      console.log('index initialize');
+                      console.log('nexusSdk live',NexusConnectSDK.isLiveHelpActive());
+                      NexusConnectSDK.exitHelp();
+                }catch(e){
+                    console.log(e);
+                }
+
+            };
+
+          
+        };
+
+
+        $(document).ready(function() {
+            var html = '<div class= "container">' +
+                    '<h3>Please Input your jwt token</h3>' +
+                    '<form>' +
+                    '<div class="row 50%">' +
+                    '<div class="12u">' +
+                    '<textarea id="message" placeholder="Please input your jwt token here" rows="5"></textarea>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="row 50%">' +
+                    '<div class="12u">' +
+                    '<ul>' +
+                    '<li><input type="submit" id="jwt_token"  value="Update Token" /></li>' +
+                    '</ul>' +
+                    '</div>' +
+                    '</div>' +
+                    '</form>' +
+                    '</div>';
+            $("#jwttoken").append(html);
+
+
+            $('#jwttoken').submit(function(event) {
+                event.preventDefault();
+                var token = $('#message').val();
+                console.log(token);
+                localStorage.setItem('token',token);
+                $('#jwttoken').hide();
+            });
+        });
+    </script>
+
+    </body>
+    </html>

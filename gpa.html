@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Acme</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body onload="initialize()">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header">
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <i class="icon logo">ACME</i>
+                <li><a href="index.html">HOME</a></li>
+                <li><a class="exitHelp" href="#">DOMAINS</a></li>
+                <li><a href="#">WEBSITES</a></li>
+                <li><a href="#">EMAIL</a></li>
+                <li><a href="#">MARKETING</a></li>
+                <li><a href="support.html">SUPPORT</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <section class="wrapper style1">
+        <div class="container">
+            <button id="live_support_button" style ="float:right; color:orange; font-family:FontAwesome;font-size: larger; font: inherit; margin-top: -7%;">Get Live Support</button>
+            <div>
+                <section id="live_support" style ="display:none; float:left; margin-left:20px;" class="3u 12u(narrower)">
+                    <div style = "height:85vh; border:1px solid #CCCCCC;" id="container_for_live_support"></div>
+                </section>
+                <section id="list_of_gpas" style="float:left; margin-left:20px;" class="12u 12u(narrower)">
+                    <div style="height:85vh; border:1px solid #CCCCCC;" id="container_for_gpa">
+                        <div id="jwt_token_error"></div>
+                    </div>
+                </section>
+                <section style="clear:both"></section>
+
+            </div>
+        </div>
+    </section>
+    <!--<section class="wrapper style3">-->
+        <!--<div class="container" >-->
+            <!--<div style = "height:80vh" id="container1"></div>-->
+            <!--<div style="height:80vh" id="container"></div>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <div id="footer">
+            <!-- Icons -->
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+            </ul>
+
+            <!-- Copyright -->
+            <div class="copyright">
+                <ul class="menu">
+                    <li>&copy; Untitled. All rights reserved</li><li>
+                </ul>
+            </div>
+
+    </div>
+</div>
+
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                    results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        };
+
+        function initialize() {
+            var param = getParameterByName('gpa');
+            var token = localStorage.getItem('token');
+            // var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6IndlbmxhaXouZGV2LnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjQzMzhiZTU1LTEwNTAtNDYwNS04Yzc5LTQ3NDA2Mzc2MjI2MiIsImFwcCI6Im15YXBwbGljYXRpb24iLCJ2ZXIiOiIxLjAiLCJwbHQiOiJvdGhlciIsImlhdCI6MTQ0MTM5MDc1OCwiYXVkIjpbImFwcCIsImFwaSJdLCJpc3MiOiJTdXBwb3J0LmNvbSJ9.1zGlvghAJsaNwRXUx6u0iTX6gNlq5elJEs26qGqKUXM';
+
+            var html = '<p style="color:red"> Please input valid JWT TOKEN IN HOME PAGE.</p>';
+            if(token) {
+                console.log(token);
+                try {
+                    NexusConnectSDK.initialize(token);
+                    NexusConnectSDK.showSelfHelpForTags([param], document.getElementById('container_for_gpa'));
+                }catch(e){
+                    console.log(e);
+                    $("#jwt_token_error").append(html);
+                }
+            }else{
+                $("#jwt_token_error").append(html);
+            }
+        };
+
+        $(document).ready(function() {
+            var live_support_button_clicked = false;
+            $('#live_support_button').click(function () {
+                if(!live_support_button_clicked){
+                   var fname = "John";
+                   var lname = "Doe";
+                   var email = 'john.doe@support.com';
+                   var phone = Math.floor(Math.random()*10000000000);
+                   var externalId = Math.floor((Math.random() * 10000));
+
+                   NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
+                   NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'),{'phone':'(408)-830-7906', 'skill':'Sales'});
+                   $('#live_support').show();
+                   $('#live_support_button').css("color","grey");
+                   $('#list_of_gpas').removeClass("12u 12u(narrower)");
+                   $('#list_of_gpas').addClass("8u 12u(narrower)");
+                   live_support_button_clicked = true;
+                }else{
+                   $('#live_support').hide(); 
+                   $('#live_support_button').css("color","orange");
+                   $('#list_of_gpas').removeClass("8u 12u(narrower)");
+                   $('#list_of_gpas').addClass("12u 12u(narrower)");
+                   live_support_button_clicked = false;
+                }
+               
+            });
+          
+        });
+
+       $('.exitHelp').click(function(e) {
+        console.log('sdk',NexusConnectSDK.isLiveHelpActive());
+         if(NexusConnectSDK.isLiveHelpActive()){
+            NexusConnectSDK.exitHelp();
+         }
+        });
+
+
+
+
+    </script>
+
+
+</body>
+</html>

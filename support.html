@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<!--
+    Arcana by HTML5 UP
+    html5up.net | @n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Acme</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body onload="initialize()">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header">
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <i class="icon logo">ACME</i>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#">DOMAINS</a></li>
+                <li><a href="#">WEBSITES</a></li>
+                <li><a href="#">EMAIL</a></li>
+                <li><a href="#">MARKETING</a></li>
+                <li><a href="#">SUPPORT</a></li>
+            </ul>
+        </nav>
+
+
+        <section id="cta" class="wrapper style2">
+            <div class="container">
+
+                <h1><a id="logo">Welcome to Acme Support</a></h1>
+                <p>Questions about Acme products? We've got the resources to help you out.</p>
+                <p>Looking for help with the Website Builder? <a href="gpa.html?gpa=WebsiteBuilder">Let's get started.</a> </p>
+                <section style="position: relative; top: 40%;left: 35%;" >
+                    <form id="gpa_search">
+                        <div class="row 50%">
+                            <div >
+                                <input type="text" name="name" id="name" placeholder="Or type to search.." />
+                            </div>
+                            <div >
+                                <ul class="actions">
+                                    <li><input type="submit" class="button alt" value="Search" /></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </form>
+                </section>
+
+            </div>
+        </section>
+
+
+        <!-- Highlights -->
+        <section class="wrapper style3">
+            <div class="container">
+                <p> Browse Common Topics</p>
+                <div class="row 200%">
+                    <section class="3u 12u(narrower)">
+                        <div class="box highlight">
+                            <i class="icon major fa-at"></i>
+                            <h3>Domains</h3>
+                        </div>
+                    </section>
+                    <section class="3u 12u(narrower)">
+                        <div   class="box highlight">
+                            <a href="gpa.html?gpa=Email">
+                               <i class="icon major fa-envelope-o"></i>
+                               <h3>Email</h3>
+                            </a>
+                        </div>
+                    </section>
+                    <section class="3u 12u(narrower)">
+                        <div class="box highlight">
+                            <i class="icon major fa-wrench"></i>
+                            <h3>Settings</h3>
+                        </div>
+                    </section>
+                    <section class="3u 12u(narrower)">
+                        <div class="box highlight">
+                            <i class="icon major fa-lock"></i>
+                            <h3>SSL</h3>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+    <!--Highlight-->
+        <section class="wrapper style1">
+            <div class="container">
+                <div class="row 200%">
+                    <section class="4u 12u(narrower)">
+                        <div class="box highlight">
+                            <i class="icon fa-2x fa-envelope-o"></i>
+                            <h5>Contact Us</h5>
+                        </div>
+                    </section>
+                    <section class="4u 12u">
+                        <div class="box highlight">
+                            <i class="icon fa-2x fa-group"></i>
+                            <h5>Community Forum</h5>
+                        </div>
+                    </section>
+                    <section class="4u 12u">
+                        <div class="box highlight">
+                            <i class="icon fa-2x fa-mobile"></i>
+                            <h5>Download our app</h5>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+    <!-- Footer -->
+    <div id="footer">
+        <!-- Icons -->
+        <ul class="icons">
+            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+        </ul>
+
+        <!-- Copyright -->
+        <div class="copyright">
+            <ul class="menu">
+                <li>&copy; Untitled. All rights reserved</li><li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
+    <script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
+
+<script>
+   function initialize() {
+            var token = localStorage.getItem('token');
+            if(token) {
+                console.log(token);
+                try {
+                    NexusConnectSDK.initialize(token);
+                }catch(e){
+                    console.log(e);
+                }
+            };
+              NexusConnectSDK.exitHelp();
+    };
+
+    $(document).ready(function() {
+        $('#gpa_search').submit(function(event) {
+            event.preventDefault();
+            var input = $('#name').val();
+            window.location ="gpa.html?gpa=" + input;
+
+
+        });
+
+        $('#email_gpa').click(function() {
+            $.post("gpa.html", { gpa: "email_gpa"} );
+        });
+    });
+</script>
+
+</body>
+</html>
