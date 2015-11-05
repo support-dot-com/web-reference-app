@@ -310,6 +310,7 @@
                 var externalId = Math.floor((Math.random() * 10000));
                 NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
                 NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'),{'phone':'(408)-830-7906', 'skill':'Sales'});
+                NexusConnectSDK.logContent("GPA");
                 $('.modal').show();
                // $('#live_support_button').css("color","grey");
                 live_support_button_clicked = true;
