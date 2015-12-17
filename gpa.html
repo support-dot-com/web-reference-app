@@ -242,6 +242,9 @@
             console.log(token);
             try {
                 NexusConnectSDK.initialize(token);
+                NexusConnectSDK.logContent("breadcrumb");
+                NexusConnectSDK.logAction("register","username");
+                NexusConnectSDK.logDevice("lightbulb",{foo: 'bar'});
                 return token;
             }catch(e){
                 console.log(e);
