@@ -239,21 +239,124 @@
             token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
         }
         if(token) {
-            console.log(token);
+//            console.log(token);
+//            console.log("browser",navigator);
+            var MachineOSDetails = detectMachineOS();
+            var BrowserDetails =detectBrowserDetails();
+
             try {
                 NexusConnectSDK.initialize(token);
                 NexusConnectSDK.logContent("breadcrumb");
-                NexusConnectSDK.logAction("register","username");
-                NexusConnectSDK.logDevice("lightbulb",{foo: 'bar'});
+                var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
+                var param = getParameterByName('helpid') ? getParameterByName('helpid'): (getParameterByName('tag')?getParameterByName('tag'):getParameterByName('search'));
+                param = by + param;
+                console.log(param);
+                NexusConnectSDK.logAction(param);
+                NexusConnectSDK.logDevice("Browser",{OS: BrowserDetails.browserName, Version: BrowserDetails.fullVersion});
+                NexusConnectSDK.logDevice("Machine",{OS: MachineOSDetails.OSName, Version: MachineOSDetails.OSVersion});
+                NexusConnectSDK.logContent("App Data", {Name: 'Acme Website', Version:'3.0.54'});
                 return token;
             }catch(e){
                 console.log(e);
-                $("#jwt_token_error").append(html);
             }
         }else{
-            $("#jwt_token_error").append(html);
         }
     };
+
+    function detectMachineOS (){
+        var os="Unknown OS";
+        var nVer = navigator.appVersion;
+        var nAgt = navigator.userAgent;
+        if (navigator.appVersion.indexOf("Win")!=-1) os="Windows";
+        if (navigator.appVersion.indexOf("Mac")!=-1) os="Mac OS";
+        if (navigator.appVersion.indexOf("X11")!=-1) os="UNIX";
+        if (navigator.appVersion.indexOf("Linux")!=-1) os="Linux";
+
+        var osVersion = "unknown";
+
+        if (/Windows/.test(os)) {
+            osVersion = /Windows (.*)/.exec(os)[1];
+            os = 'Windows';
+        }
+
+        switch (os) {
+            case 'Mac OS':
+                osVersion = /Mac OS X (10[\.\_\d]+)/.exec(nAgt)[1];
+                break;
+            case 'Android':
+                osVersion = /Android ([\.\_\d]+)/.exec(nAgt)[1];
+                break;
+            case 'iOS':
+                osVersion = /OS (\d+)_(\d+)_?(\d+)?/.exec(nVer);
+                osVersion = osVersion[1] + '.' + osVersion[2] + '.' + (osVersion[3] | 0);
+                break;
+        }
+
+        return {OSName: os, OSVersion: osVersion};
+    }
+
+    function detectBrowserDetails (){
+        var nVer = navigator.appVersion;
+        var nAgt = navigator.userAgent;
+        var browserName  = navigator.appName;
+        var fullVersion  = ''+parseFloat(navigator.appVersion);
+        var majorVersion = parseInt(navigator.appVersion,10);
+        var nameOffset,verOffset,ix;
+
+        // In Opera, the true version is after "Opera" or after "Version"
+        if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+            browserName = "Opera";
+            fullVersion = nAgt.substring(verOffset+6);
+            if ((verOffset=nAgt.indexOf("Version"))!=-1)
+                fullVersion = nAgt.substring(verOffset+8);
+        }
+        // In MSIE, the true version is after "MSIE" in userAgent
+        else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+            browserName = "Microsoft Internet Explorer";
+            fullVersion = nAgt.substring(verOffset+5);
+        }
+        // In Chrome, the true version is after "Chrome"
+        else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+            browserName = "Chrome";
+            fullVersion = nAgt.substring(verOffset+7);
+        }
+        // In Safari, the true version is after "Safari" or after "Version"
+        else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+            browserName = "Safari";
+            fullVersion = nAgt.substring(verOffset+7);
+            if ((verOffset=nAgt.indexOf("Version"))!=-1)
+                fullVersion = nAgt.substring(verOffset+8);
+        }
+        // In Firefox, the true version is after "Firefox"
+        else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+            browserName = "Firefox";
+            fullVersion = nAgt.substring(verOffset+8);
+        }
+        // In most other browsers, "name/version" is at the end of userAgent
+        else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) <
+                (verOffset=nAgt.lastIndexOf('/')) )
+        {
+            browserName = nAgt.substring(nameOffset,verOffset);
+            fullVersion = nAgt.substring(verOffset+1);
+            if (browserName.toLowerCase()==browserName.toUpperCase()) {
+                browserName = navigator.appName;
+            }
+        }
+       // trim the fullVersion string at semicolon/space if present
+        if ((ix=fullVersion.indexOf(";"))!=-1)
+            fullVersion=fullVersion.substring(0,ix);
+        if ((ix=fullVersion.indexOf(" "))!=-1)
+            fullVersion=fullVersion.substring(0,ix);
+
+        majorVersion = parseInt(''+fullVersion,10);
+        if (isNaN(majorVersion)) {
+            fullVersion  = ''+parseFloat(navigator.appVersion);
+            majorVersion = parseInt(navigator.appVersion,10);
+        }
+
+        return {browserName: browserName, fullVersion:fullVersion};
+
+    }
 
 
     function get_gpa_param(){
@@ -330,6 +433,9 @@
             var input = $('.name').val();
             if(input) {
                 window.location = "gpa.html?search=" + input;
+                NexusConnectSDK.logContent("breadcrumb");
+              //  console.log('param',input);
+                NexusConnectSDK.logAction(input);
             }
         });
 
