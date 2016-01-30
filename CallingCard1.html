@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
     <link rel='stylesheet'  href="assets/css/style.css" type='text/css' media='all' />
     <link rel='stylesheet'  href="assets/css/style-custom.css" type='text/css' media='all' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-</head>
+    <link rel='stylesheet'  href="assets/css/bbpress.css" type='text/css' media='all' />
 
-
-<body onload="initialize()" class="search search-results">
+<body onload="initialize()" class="home page page-id-11 page-template page-template-template-front-page page-template-template-front-page-php">
 <!-- #header -->
 <header id="header" class="clearfix" role="banner">
     <div class="ht-container">
@@ -44,43 +40,57 @@
         </div>
     </div>
 </header>
-
-<div>
-    <div class="header_image" >
-    </div>
-
-</div>
-
-<!-- Highlights -->
+<!-- /#header -->
 
 
-<div id="features-list">
+<!-- #page-header -->
+<div id="page-header"class="clearfix" style="text-align:left">
     <div class="ht-container">
-        <div class="row stacked">
-            <div class="column col-third">
-                <div class="feature-icon"><img alt="" src="assets/images/Domains.jpg" /></div>
-                <h3>Domains</h3>
-                <p>From classics like.com and org to new domain names like club,guru, even rocks, we can help you to find the right name for your business.</p>
-            </div>
-
-            <div class="column col-third">
-                <div class="feature-icon"><img alt="" src="assets/images/Websites.jpg" /></div>
-                <h3>Websites</h3>
-                <p>Get your website online today.</p>
-                <p>Start with of 100s of professional designs,customize it with simple drog & drop tools, and put you new site online with free hosting</p>
-            </div>
-
-            <div class="column col-third">
-                <div class="feature-icon"><img alt="" src="assets/images/Email.jpg" /></div>
-                <h3>Email</h3>
-                <p>The right email makes a difference.</p>
-                <p>Did you know that customers are nine times more likely to choose a business that has a professional email address?</p>
-            </div>
-        </div>
+        <h1>Calling Card</h1>
+        <p>Need help with an Acme product?</p>
     </div>
 </div>
+<!-- /#page-header -->
+
+<!-- #breadcrumbs -->
+<div id="page-subnav" class="clearfix">
+    <div class="ht-container">
+        <div id="breadcrumbs"><a href="#Calling Card">Home</a><span class="sep">/</span>Calling Card</div></div>
+</div>
+<!-- /#breadcrumbs -->
+
+<!-- #primary -->
+<div id="primary" class="sidebar-off clearfix">
+    <div class="ht-container">
+
+        <!-- #content -->
+        <section id="content" role="main">
 
 
+            <article id="post-33" class="post-33 page type-page status-publish hentry">
+                <div  class="modal2">
+                    <div style="width: 500px; height: 30px; padding: 5px 15px; border: 0px; border-radius: 2px 2px 0px 0px; background: rgb(99, 99, 99);cursor: move;">
+                        <span style="color: rgb(243, 243, 243); font-size: 15px; font-weight: bold; line-height: 15px;">Get Live Help</span>
+                        <span id="close_live_help"title="Hide" style="cursor: pointer; width: 15px; height: 15px; color: rgb(243, 243, 243); position: absolute; top: 2px; right: 10px; font-weight: bold; text-align: center;">x</span>
+                    </div>
+                    <div style="position:absolute;width:530px;height:510px;" id="container_for_live_support"></div>
+                </div>
+                <div class="content">
+                </div>
+            </article>
+
+
+        </section>
+        <!-- #content -->
+
+
+    </div>
+</div>
+<!-- #primary -->
+
+
+
+<!-- #footer-bottom -->
 <footer id="footer" class="clearfix">
     <div id="footer-widgets" class="clearfix">
         <div class="ht-container">
@@ -122,9 +132,6 @@
     </div>
 
 
-    <div id="jwttoken" class="wrapper style1">
-
-    </div>
     <div id="footer-bottom" class="clearfix">
         <div class="ht-container">
             <small id="copyright" role="contentinfo">Copyright © A Hero Theme.</small>
@@ -145,67 +152,56 @@
     </div>
 
 </footer>
+<!-- /#footer-bottom -->
 
 
-
-
-</body>
 <script src="assets/js/jquery.min.js"></script>
 <script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
 <script>
-    function initialize() {
-        localStorage.clear();
-//        var token = localStorage.getItem('token');
-//        if(!token) {
-//            token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
-//        }
-//        if(token) {
-//            console.log(token);
-//            try {
-//                NexusConnectSDK.initialize(token);
-//                return token;
-//            }catch(e){
-//                console.log(e);
-//                $("#jwt_token_error").append(html);
-//            }
-//        }else{
-//            $("#jwt_token_error").append(html);
-//        }
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     };
 
-    $(document).ready(function(){
-        //var token = initialize();
-        var html = '<div class= "ht-container">' +
-                '<h3>Please Input your jwt token</h3>' +
-                '<form>' +
-                '<div>' +
-                '<div class="clearfix">' +
-                '<textarea id="message" placeholder="Please input your jwt token here" rows="6"></textarea>' +
-                '</div>' +
-                '</div>' +
-                '<div class="row">' +
-                '<div>' +
-                '<ul>' +
-                '<div class="clearfix has_thumb"><input type="submit" id="jwt_token"  value="Update Token" /></div>' +
-                '</ul>' +
-                '</div>' +
-                '</div>' +
-                '</form>' +
-                '</div>';
-        $("#jwttoken").append(html);
-
-
-        $('#jwttoken').submit(function(event) {
-            event.preventDefault();
-            var token = $('#message').val();
-            console.log('token',token);
-            if(!token || 0 === token.length){
-                $('#message').attr("placeholder", "Error: Your input is not valid, please type a valid token!");
-            }else {
-                localStorage.setItem('token', token);
-                $('#jwttoken').hide();
+    function initialize() {
+        var token = localStorage.getItem('token');
+        if(!token) {
+            token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
+        }
+        if(token) {
+            console.log(token);
+            try {
+                NexusConnectSDK.initialize(token);
+                return token;
+            }catch(e){
+                console.log(e);
+                $("#jwt_token_error").append(html);
             }
+        }else{
+            $("#jwt_token_error").append(html);
+        }
+    };
+
+    $(document).ready(function() {
+        var token = initialize();
+        var fname = "John";
+        var lname = "Doe";
+        var email = 'john.doe@support.com';
+        var phone = Math.floor(Math.random() * 10000000000);
+        var externalId = Math.floor((Math.random() * 10000));
+        NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
+        NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'), {
+            'phone': '(408)-830-7906',
+            'skill': 'Sales',
+            'remoteConnectionType': 'remote',
+            'connectMethod': "IVR"
         });
+        $('.modal').show();
+
     });
+
 </script>
+</body>
 </html>

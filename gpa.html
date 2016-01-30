@@ -6,7 +6,7 @@
     <link rel='stylesheet'  href="assets/css/style-custom.css" type='text/css' media='all' />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel='stylesheet'  href="assets/css/bbpress.css" type='text/css' media='all' />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
 
 
 <body onload="initialize()" class="search search-results">
@@ -33,9 +33,11 @@
                             <li class="menu-item"><a href="support1.html">Support1</a></li>
                             <li class="menu-item"><a href="support2.html">Support2</a></li>
                             <li class="menu-item"><a href="support3.html">Support3</a></li>
-                            <li class="menu-item "><a href="CallingCard.html">Calling Card</a></li>
+                            <li class="menu-item "><a href="CallingCard1.html">Calling Card 1</a></li>
+                            <li class="menu-item "><a href="CallingCard2.html">Calling Card 2</a></li>
                         </ul>
                     </li>
+                    <li class="menu-item "><a href="IVR.html">IVR</a></li>
                 </ul>
             </nav>
             <!-- #primary-nav -->
@@ -209,7 +211,8 @@
                     <li class="menu-item menu-item-type-custom menu-item-object-custom "><a href="#">Email</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="#">Marketing</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="support1.html">Support</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="CallingCard.html">Calling Card</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="CallingCard1.html">Calling Card</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="IVR.html">IVR</a></li>
 
                 </ul>
                 <p class="nav-footer clearfix">Use of this site is subject to <a href="https://github.com/seaskymonster/web-reference-app/blob/master/Nexus%20Connect%20JavaScript%20Reference%20App%20EULA%202015-10-13.pdf">Terms and Conditions</a> and <a href="http://www.support.com/legal/site-privacy-policy/">Privacy Policy</a></p>
@@ -222,9 +225,11 @@
 <!-- /#footer-bottom -->
 
 <!--<script src="assets/js/jquery.min.js"></script>-->
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<!--<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>-->
+<script src="http://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
+
 <script>
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -237,16 +242,14 @@
         var token = localStorage.getItem('token');
         if(!token) {
             token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
-        }
-        if(token) {
-//            console.log(token);
-//            console.log("browser",navigator);
+//            token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6IndlbmxhaXouZGV2LnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6ImI3MmU4NWJjLWFkMGItNGU2Yy1iYjY1LTBmMGMyMTA0ZTZmNyIsImFwcCI6ImFwcCIsInZlciI6IjEuMCIsImlhdCI6MTQ1NDAwNzU0NCwiYXVkIjpbImFwcCIsImFwaSJdLCJpc3MiOiJTdXBwb3J0LmNvbSJ9.1wD19BFhrkzmkuXzREO_fWd9VJkxErmI3OwB-f1k1gU';
             var MachineOSDetails = detectMachineOS();
-            var BrowserDetails =detectBrowserDetails();
+            var BrowserDetails = detectBrowserDetails();
 
             try {
                 NexusConnectSDK.initialize(token);
                 NexusConnectSDK.logContent("breadcrumb");
+                NexusConnectSDK.logAction('support1');
                 var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
                 var param = getParameterByName('helpid') ? getParameterByName('helpid'): (getParameterByName('tag')?getParameterByName('tag'):getParameterByName('search'));
                 param = by + param;
@@ -357,8 +360,7 @@
         return {browserName: browserName, fullVersion:fullVersion};
 
     }
-
-
+    
     function get_gpa_param(){
         var param_helpid = getParameterByName('helpid');
         var param_tag = getParameterByName('tag');
@@ -407,7 +409,7 @@
         var live_support_button_clicked = false;
 
         $('#live_support_button').click(function () {
-            token = initialize();
+//            token = initialize();
             if(!live_support_button_clicked){
                 var fname = "John";
                 var lname = "Doe";
@@ -415,8 +417,20 @@
                 var phone = Math.floor(Math.random()*10000000000);
                 var externalId = Math.floor((Math.random() * 10000));
                 NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
-                NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'),{'phone':'(408)-830-7906', 'skill':'Sales'});
-                NexusConnectSDK.logContent("GPA");
+                NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'), {
+                    mode: "",
+                    phone:"(408)-830-7906",
+                    skill:"Sales"
+                }).then(
+                        function(){
+                            console.log("Success!");
+                        },
+                        function(error){
+                            console.log("Error:" + error);
+                        }
+                );
+
+//                NexusConnectSDK.logContent("GPA");
                 $('.modal').show();
                // $('#live_support_button').css("color","grey");
                 live_support_button_clicked = true;
@@ -458,14 +472,6 @@
             NexusConnectSDK.exitHelp();
         }
     });
-
-
-
-
-
-
-
-
 </script>
 </body>
 </html>
