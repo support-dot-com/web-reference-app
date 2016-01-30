@@ -249,7 +249,7 @@
             try {
                 NexusConnectSDK.initialize(token);
                 NexusConnectSDK.logContent("breadcrumb");
-                NexusConnectSDK.logAction('support1');
+               // NexusConnectSDK.logAction('support1');
                 var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
                 var param = getParameterByName('helpid') ? getParameterByName('helpid'): (getParameterByName('tag')?getParameterByName('tag'):getParameterByName('search'));
                 param = by + param;
@@ -360,7 +360,7 @@
         return {browserName: browserName, fullVersion:fullVersion};
 
     }
-    
+
     function get_gpa_param(){
         var param_helpid = getParameterByName('helpid');
         var param_tag = getParameterByName('tag');
@@ -409,7 +409,7 @@
         var live_support_button_clicked = false;
 
         $('#live_support_button').click(function () {
-//            token = initialize();
+            token = initialize();
             if(!live_support_button_clicked){
                 var fname = "John";
                 var lname = "Doe";

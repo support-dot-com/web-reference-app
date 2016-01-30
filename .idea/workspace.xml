@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf10ba6-ecf8-46a4-9fd4-998a4f65d6a0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CallingCard2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/IVR.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/css/jquery.numpad.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/js/jquery.numpad.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/CallingCard.html" afterPath="$PROJECT_DIR$/CallingCard1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gpa.html" afterPath="$PROJECT_DIR$/gpa.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support1.html" afterPath="$PROJECT_DIR$/support1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support2.html" afterPath="$PROJECT_DIR$/support2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/support3.html" afterPath="$PROJECT_DIR$/support3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web-reference-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,8 +36,8 @@
       <file leaf-file-name="CallingCard1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CallingCard1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.625">
-              <caret line="141" column="59" selection-start-line="141" selection-start-column="59" selection-end-line="141" selection-end-column="59" />
+            <state vertical-scroll-proportion="-15.541667">
+              <caret line="186" column="34" selection-start-line="186" selection-start-column="34" selection-end-line="186" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -62,7 +52,7 @@
       <file leaf-file-name="CallingCard2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CallingCard2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.75">
+            <state vertical-scroll-proportion="6.9583335">
               <caret line="146" column="121" selection-start-line="146" selection-start-column="121" selection-end-line="146" selection-end-column="121" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -128,8 +118,8 @@
       <file leaf-file-name="gpa.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gpa.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.7737789">
-              <caret line="362" column="4" selection-start-line="362" selection-start-column="4" selection-end-line="362" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.44344473">
+              <caret line="412" column="25" selection-start-line="412" selection-start-column="25" selection-end-line="412" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -138,10 +128,10 @@
                 <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#14215#14498#0" expanded="false" />
-                <element signature="e#16646#17711#0" expanded="false" />
-                <element signature="e#17749#20447#0" expanded="false" />
-                <element signature="e#20481#21821#0" expanded="false" />
-                <marker date="1454112171000" expanded="true" signature="21190:21199" placeholder="..." />
+                <element signature="e#16648#17713#0" expanded="false" />
+                <element signature="e#17751#20449#0" expanded="false" />
+                <element signature="e#20479#21819#0" expanded="false" />
+                <marker date="1454113623000" expanded="true" signature="21188:21197" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -404,10 +394,10 @@
             <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#14215#14498#0" expanded="false" />
-            <element signature="e#16646#17711#0" expanded="false" />
-            <element signature="e#17749#20447#0" expanded="false" />
-            <element signature="e#20481#21821#0" expanded="false" />
-            <marker date="1454112171000" expanded="true" signature="21190:21199" placeholder="..." />
+            <element signature="e#16648#17713#0" expanded="false" />
+            <element signature="e#17751#20449#0" expanded="false" />
+            <element signature="e#20479#21819#0" expanded="false" />
+            <marker date="1454113623000" expanded="true" signature="21188:21197" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -486,10 +476,10 @@
             <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#14215#14498#0" expanded="false" />
-            <element signature="e#16646#17711#0" expanded="false" />
-            <element signature="e#17749#20447#0" expanded="false" />
-            <element signature="e#20481#21821#0" expanded="false" />
-            <marker date="1454112171000" expanded="true" signature="21190:21199" placeholder="..." />
+            <element signature="e#16648#17713#0" expanded="false" />
+            <element signature="e#17751#20449#0" expanded="false" />
+            <element signature="e#20479#21819#0" expanded="false" />
+            <marker date="1454113623000" expanded="true" signature="21188:21197" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -568,10 +558,10 @@
             <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#14215#14498#0" expanded="false" />
-            <element signature="e#16646#17711#0" expanded="false" />
-            <element signature="e#17749#20447#0" expanded="false" />
-            <element signature="e#20481#21821#0" expanded="false" />
-            <marker date="1454112171000" expanded="true" signature="21190:21199" placeholder="..." />
+            <element signature="e#16648#17713#0" expanded="false" />
+            <element signature="e#17751#20449#0" expanded="false" />
+            <element signature="e#20479#21819#0" expanded="false" />
+            <marker date="1454113623000" expanded="true" signature="21188:21197" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -636,10 +626,10 @@
             <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#14215#14498#0" expanded="false" />
-            <element signature="e#16646#17711#0" expanded="false" />
-            <element signature="e#17749#20447#0" expanded="false" />
-            <element signature="e#20481#21821#0" expanded="false" />
-            <marker date="1454112171000" expanded="true" signature="21190:21199" placeholder="..." />
+            <element signature="e#16648#17713#0" expanded="false" />
+            <element signature="e#17751#20449#0" expanded="false" />
+            <element signature="e#20479#21819#0" expanded="false" />
+            <marker date="1454113623000" expanded="true" signature="21188:21197" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -704,10 +694,10 @@
             <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#14215#14498#0" expanded="false" />
-            <element signature="e#16646#17711#0" expanded="false" />
-            <element signature="e#17749#20447#0" expanded="false" />
-            <element signature="e#20481#21821#0" expanded="false" />
-            <marker date="1454112171000" expanded="true" signature="21190:21199" placeholder="..." />
+            <element signature="e#16648#17713#0" expanded="false" />
+            <element signature="e#17751#20449#0" expanded="false" />
+            <element signature="e#20479#21819#0" expanded="false" />
+            <marker date="1454113623000" expanded="true" signature="21188:21197" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -772,10 +762,10 @@
             <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#14215#14498#0" expanded="false" />
-            <element signature="e#16646#17711#0" expanded="false" />
-            <element signature="e#17749#20447#0" expanded="false" />
-            <element signature="e#20481#21821#0" expanded="false" />
-            <marker date="1454112171000" expanded="true" signature="21190:21199" placeholder="..." />
+            <element signature="e#16648#17713#0" expanded="false" />
+            <element signature="e#17751#20449#0" expanded="false" />
+            <element signature="e#20479#21819#0" expanded="false" />
+            <marker date="1454113623000" expanded="true" signature="21188:21197" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -846,34 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CallingCard1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625">
-          <caret line="141" column="59" selection-start-line="141" selection-start-column="59" selection-end-line="141" selection-end-column="59" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CallingCard2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.75">
-          <caret line="146" column="121" selection-start-line="146" selection-start-column="121" selection-end-line="146" selection-end-column="121" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IVR.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="52.8">
@@ -904,10 +866,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CallingCard2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.9583335">
+          <caret line="146" column="121" selection-start-line="146" selection-start-column="121" selection-end-line="146" selection-end-column="121" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CallingCard1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.541667">
+          <caret line="186" column="34" selection-start-line="186" selection-start-column="34" selection-end-line="186" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#article#0;n#section#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gpa.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7737789">
-          <caret line="362" column="4" selection-start-line="362" selection-start-column="4" selection-end-line="362" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.44344473">
+          <caret line="412" column="25" selection-start-line="412" selection-start-column="25" selection-end-line="412" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -916,10 +906,10 @@
             <element signature="n#style#0;n#span#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#14215#14498#0" expanded="false" />
-            <element signature="e#16646#17711#0" expanded="false" />
-            <element signature="e#17749#20447#0" expanded="false" />
-            <element signature="e#20481#21821#0" expanded="false" />
-            <marker date="1454112171000" expanded="true" signature="21190:21199" placeholder="..." />
+            <element signature="e#16648#17713#0" expanded="false" />
+            <element signature="e#17751#20449#0" expanded="false" />
+            <element signature="e#20479#21819#0" expanded="false" />
+            <marker date="1454113623000" expanded="true" signature="21188:21197" placeholder="..." />
           </folding>
         </state>
       </provider>
