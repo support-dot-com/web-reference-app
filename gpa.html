@@ -9,7 +9,7 @@
     <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
 
 
-<body onload="initialize()" class="search search-results">
+<body  class="search search-results">
 <!-- #header -->
 <header id="header" class="clearfix" role="banner">
     <div class="ht-container">
@@ -242,18 +242,19 @@
         var token = localStorage.getItem('token');
         if(!token) {
             token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
-//            token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6IndlbmxhaXouZGV2LnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6ImI3MmU4NWJjLWFkMGItNGU2Yy1iYjY1LTBmMGMyMTA0ZTZmNyIsImFwcCI6ImFwcCIsInZlciI6IjEuMCIsImlhdCI6MTQ1NDAwNzU0NCwiYXVkIjpbImFwcCIsImFwaSJdLCJpc3MiOiJTdXBwb3J0LmNvbSJ9.1wD19BFhrkzmkuXzREO_fWd9VJkxErmI3OwB-f1k1gU';
+            //token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6IndlbmxhaXouZGV2LnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjlmNTdjYWY2LWE3NTUtNDdhYS1hNTBlLTM4Njg1NGUxZWE5OCIsImFwcCI6ImFwcCIsInZlciI6IjEuMCIsImlhdCI6MTQ1NDUyODA1OSwiYXVkIjpbImFwcCIsImFwaSJdLCJpc3MiOiJTdXBwb3J0LmNvbSJ9.yoJuPunKMTVHgbERzb8bpTFp7CoA8c0AteJ2xgBqja0';
             var MachineOSDetails = detectMachineOS();
             var BrowserDetails = detectBrowserDetails();
 
             try {
                 NexusConnectSDK.initialize(token);
-                NexusConnectSDK.logContent("breadcrumb");
-               // NexusConnectSDK.logAction('support1');
+                NexusConnectSDK.preserveContext(true);
+                NexusConnectSDK.logAction('GPA');
                 var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
                 var param = getParameterByName('helpid') ? getParameterByName('helpid'): (getParameterByName('tag')?getParameterByName('tag'):getParameterByName('search'));
                 param = by + param;
                 console.log(param);
+
                 NexusConnectSDK.logAction(param);
                 NexusConnectSDK.logDevice("Browser",{OS: BrowserDetails.browserName, Version: BrowserDetails.fullVersion});
                 NexusConnectSDK.logDevice("Machine",{OS: MachineOSDetails.OSName, Version: MachineOSDetails.OSVersion});
@@ -345,7 +346,7 @@
                 browserName = navigator.appName;
             }
         }
-       // trim the fullVersion string at semicolon/space if present
+        // trim the fullVersion string at semicolon/space if present
         if ((ix=fullVersion.indexOf(";"))!=-1)
             fullVersion=fullVersion.substring(0,ix);
         if ((ix=fullVersion.indexOf(" "))!=-1)
@@ -378,6 +379,7 @@
                 param = param_search;
                 $('.search_result_category').text("Content");
             }
+
         }else{
             return null;
         }
@@ -409,7 +411,7 @@
         var live_support_button_clicked = false;
 
         $('#live_support_button').click(function () {
-            token = initialize();
+            //  token = initialize();
             if(!live_support_button_clicked){
                 var fname = "John";
                 var lname = "Doe";
@@ -432,11 +434,11 @@
 
 //                NexusConnectSDK.logContent("GPA");
                 $('.modal').show();
-               // $('#live_support_button').css("color","grey");
+                // $('#live_support_button').css("color","grey");
                 live_support_button_clicked = true;
             }else{
                 $('.modal').hide();
-               // $('#live_support_button').css("color","orange");
+                // $('#live_support_button').css("color","orange");
                 live_support_button_clicked = false;
             }
 
@@ -447,9 +449,9 @@
             var input = $('.name').val();
             if(input) {
                 window.location = "gpa.html?search=" + input;
-                NexusConnectSDK.logContent("breadcrumb");
-              //  console.log('param',input);
-                NexusConnectSDK.logAction(input);
+//                NexusConnectSDK.logContent("breadcrumb");
+                //  console.log('param',input);
+//                NexusConnectSDK.logAction("Searched Content by :" +input );
             }
         });
 

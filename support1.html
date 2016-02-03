@@ -202,6 +202,8 @@
             console.log(token);
             try {
                 NexusConnectSDK.initialize(token);
+                NexusConnectSDK.preserveContext(true);
+                NexusConnectSDK.logAction('support1');
 
                 return token;
             }catch(e){

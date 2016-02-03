@@ -175,6 +175,8 @@
             console.log(token);
             try {
                 NexusConnectSDK.initialize(token);
+                NexusConnectSDK.preserveContext(true);
+                NexusConnectSDK.logAction('support2');
                 return token;
             }catch(e){
                 console.log(e);
