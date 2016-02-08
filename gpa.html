@@ -258,9 +258,33 @@
             console.log(param);
 
             NexusConnectSDK.logAction(param);
-            NexusConnectSDK.logDevice("Browser",{OS: BrowserDetails.browserName, Version: BrowserDetails.fullVersion});
-            NexusConnectSDK.logDevice("Machine",{OS: MachineOSDetails.OSName, Version: MachineOSDetails.OSVersion});
-            NexusConnectSDK.logContent("App Data", {Name: 'Acme Website', Version:'3.0.54'});
+            if(!localStorage.getItem('Browser')){
+                var browserInfo =  {
+                    OS: BrowserDetails.browserName,
+                    Version: BrowserDetails.fullVersion
+                };
+                NexusConnectSDK.logDevice("Browser", browserInfo);
+                localStorage.setItem('Browser', browserInfo);
+            }
+
+            if(!localStorage.getItem('Machine')) {
+                var machineInfo = {
+                    OS: MachineOSDetails.OSName,
+                    Version: MachineOSDetails.OSVersion
+                };
+                NexusConnectSDK.logDevice("Machine", machineInfo);
+                localStorage.setItem('Machine', machineInfo);
+            }
+
+            if(!localStorage.getItem('App Data')) {
+                var AppInfo = {
+                    Name: 'Acme Website',
+                    Version: '3.0.54'
+                };
+                NexusConnectSDK.logContent("App Data", AppInfo);
+                localStorage.setItem('App Data', AppInfo);
+            }
+
             return token;
         }catch(e){
             console.log(e);
