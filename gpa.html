@@ -48,14 +48,14 @@
 
 <!-- #page-header -->
 <div id="page-header" class="clearfix">
-    <div class="ht-container">
+    <div class="ht-container-new">
         <h1>Results for: <span class="search_result"></span></h1>
-        <div  id="live-search">
+        <!--<div  id="live-search">
             <form  role="search" method="get" id="searchform" class="clearfix" action="http://demo.herothemes.com/supportdesk/" autocomplete="off">
                 <input class="name" type="text" onfocus="if (this.value == 'Search for Guided Path ...') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search for Guided Path ...';}" value="Search for Guided Path ..." name="s" id="s" />
                 <input type="hidden" name="post_type[]" value="st_kb" />
             </form>
-        </div>
+        </div>-->
     </div>
 
 </div>
@@ -63,7 +63,7 @@
 
 <!-- #breadcrumbs -->
 <div id="page-subnav" class="clearfix">
-    <div class="ht-container">
+    <div class="ht-container-new">
         <div id="breadcrumbs"><a href="">Home</a><span class="sep">/</span>Search Results by<span style="font-weight:bold"; class="search_result_category"></span> for:<span class="search_result"></span></div></div>
 </div>
 <!-- /#breadcrumbs -->
@@ -71,9 +71,9 @@
 
 <!-- #primary -->
 <div id="primary" class="sidebar-right clearfix">
-    <div class="ht-container">
+    <div class="ht-container-new">
         <!-- #content -->
-        <article id="content"  style = "width:70%; height:85vh; border:1px solid #CCCCCC;" class="clearfix post-162 post type-post status-publish format-standard has-post-thumbnail hentry category-how-to tag-howto tag-strategy-2 tag-support has_thumb">
+        <article id="content"  style = "width:70%; height:85vh; border:1px solid #CCCCCC;" class="clearfix post-162 type-post status-publish format-standard has-post-thumbnail hentry category-how-to tag-howto tag-strategy-2 tag-support has_thumb">
                 <div id="jwt_token_error"></div>
         </article>
         <!-- /#content -->
@@ -163,7 +163,7 @@
 <!-- #footer-bottom -->
 <footer id="footer" class="clearfix">
     <div id="footer-widgets" class="clearfix">
-        <div class="ht-container">
+        <div class="ht-container-new">
             <div class="row">
                 <div id="text-3" class="column col-third widget widget_text"><h4 class="widget-title"><span>About Acme</span></h4>
                     <div class="textwidget"><p>Acme is a domain register and web hosting company.</p>
@@ -201,7 +201,7 @@
         </div>
     </div>
     <div id="footer-bottom" class="clearfix">
-        <div class="ht-container">
+        <div class="ht-container-new">
             <small id="copyright" role="contentinfo">Copyright © A Hero Theme.</small>
             <nav id="footer-nav" role="navigation">
                 <ul class="nav-footer clearfix">
@@ -228,7 +228,7 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <!--<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>-->
-<script src="http://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
+<!--<script src="http://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>-->
 
 <script>
     function getParameterByName(name) {
@@ -249,10 +249,55 @@
 
         try {
             console.log('token',token);
+            var nexus_sdk_url = localStorage.getItem('nexus_sdk_url');
+            var nexus_sdk_script = document.createElement('script');
+            nexus_sdk_script.setAttribute('src', nexus_sdk_url);
+            document.head.appendChild(nexus_sdk_script);
+            setTimeout(function () {
+                if(NexusConnectSDK) {
+                    NexusConnectSDK.initialize(token);
+                    NexusConnectSDK.preserveContext(true);
+                    NexusConnectSDK.logAction('GPA');
+                    var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
+                    var param = getParameterByName('helpid') ? getParameterByName('helpid'): (getParameterByName('tag')?getParameterByName('tag'):getParameterByName('search'));
+                    param = by + param;
+                    console.log(param);
+
+                    NexusConnectSDK.logAction(param);
+                    if(!localStorage.getItem('Browser')){
+                        var browserInfo =  {
+                            OS: BrowserDetails.browserName,
+                            Version: BrowserDetails.fullVersion
+                        };
+                        NexusConnectSDK.logDevice("Browser", browserInfo);
+                        localStorage.setItem('Browser', browserInfo);
+                    }
+
+                    if(!localStorage.getItem('Machine')) {
+                        var machineInfo = {
+                            OS: MachineOSDetails.OSName,
+                            Version: MachineOSDetails.OSVersion
+                        };
+                        NexusConnectSDK.logDevice("Machine", machineInfo);
+                        localStorage.setItem('Machine', machineInfo);
+                    }
+
+                    if(!localStorage.getItem('App Data')) {
+                        var AppInfo = {
+                            Name: 'Acme Website',
+                            Version: '3.0.54'
+                        };
+                        NexusConnectSDK.logContent("App Data", AppInfo);
+                        localStorage.setItem('App Data', AppInfo);
+                    }
+                }
+                return token;
+            },1000);
+            /*
             NexusConnectSDK.initialize(token);
             NexusConnectSDK.preserveContext(true);
-            NexusConnectSDK.logAction('GPA');
-            var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
+            NexusConnectSDK.logAction('GPA');*/
+            /*var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
             var param = getParameterByName('helpid') ? getParameterByName('helpid'): (getParameterByName('tag')?getParameterByName('tag'):getParameterByName('search'));
             param = by + param;
             console.log(param);
@@ -285,7 +330,7 @@
                 localStorage.setItem('App Data', AppInfo);
             }
 
-            return token;
+            return token;*/
         }catch(e){
             console.log(e);
         }
@@ -466,10 +511,16 @@
 
     $(document).ready(function() {
         var token = initialize();
-        var param = get_gpa_param();
+        setTimeout(function () {
+            var param = get_gpa_param();
+            if(param) {
+                $('.search_result').text(param);
+            }
+        },1000);
+        /*var param = get_gpa_param();
         if(param) {
             $('.search_result').text(param);
-        }
+        }*/
         var live_support_button_clicked = false;
 
         $('#live_support_button').click(function () {

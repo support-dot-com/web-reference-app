@@ -630,6 +630,10 @@ a:hover {
 	max-width: 1000px;
 	padding:0 3%;
 }
+#site-container, .ht-container-new {
+	margin: 0 15%;
+	padding:0 3%;
+}
 #site-container {
 	background:#fff;	
 }

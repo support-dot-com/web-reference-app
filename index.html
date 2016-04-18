@@ -151,13 +151,13 @@
 
 </body>
 <script src="assets/js/jquery.min.js"></script>
-<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
+<!--<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>-->
 <script>
     function initialize() {
         localStorage.clear();
-        NexusConnectSDK.resetContext();
+        /*NexusConnectSDK.resetContext();
         NexusConnectSDK.clearContext();
-        NexusConnectSDK.logAction('Home');
+        NexusConnectSDK.logAction('Home');*/
 //        var token = localStorage.getItem('token');
 //        if(!token) {
 //            token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
@@ -207,6 +207,19 @@
             }else {
                 localStorage.setItem('token', token);
                 $('#jwttoken').hide();
+                var parsedJWT = JSON.parse(window.atob(token.split(".")[1]));
+                var nexus_sdk_url = 'https://static.' + parsedJWT.d + '/client/v1/nexus-connect-sdk.js';
+                localStorage.setItem('nexus_sdk_url', nexus_sdk_url);
+                var nexus_sdk_script = document.createElement('script');
+                nexus_sdk_script.setAttribute('src', nexus_sdk_url);
+                document.head.appendChild(nexus_sdk_script);
+                setTimeout(function () {
+                    if(NexusConnectSDK) {
+                        NexusConnectSDK.resetContext();
+                        NexusConnectSDK.clearContext();
+                        NexusConnectSDK.logAction('Home');
+                    }
+                },1000);
             }
         });
     });

@@ -79,12 +79,12 @@
 				</div>
 			</div>
 				<!-- #live-search -->
-			<div id="live-search">
+			<!--<div id="live-search">
 					<form role="search" method="get" id="searchform" class="clearfix" action="http://demo.herothemes.com/supportdesk/" autocomplete="off">
 						<input class="name" type="text" onfocus="if (this.value == 'Search for Guided Path ...') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search for Guided Path ...';}" value="Search for Guided Path ..." name="s" id="s" />
 						<input type="hidden" name="post_type[]" value="st_kb" />
 					</form>
-			</div>
+			</div>-->
 		</div>
 				<!-- /#live-search -->
 		<!-- /#page-header -->
@@ -93,7 +93,7 @@
 		<div id="features-list">
 			<div class="ht-container">
 				<div class="row stacked">
-					<div class="column col-third">
+					<!--<div class="column col-third">
 						<div class="feature-icon"><img alt="" src="assets/images/kb-large.png" /></div>
 						<h3>Domains</h3>
 						<p>Find your perfect domain name.</p>
@@ -109,7 +109,8 @@
 						<div class="feature-icon"><img alt="" src="assets/images/contact-large.png" /></div>
 						<h3>Email</h3>
 						<p>The right email makes a difference.</p>
-					</div>
+					</div>-->
+					<div id="support2" style="height: 1160px;"></div>
 				</div>
 			</div>
 		</div>
@@ -221,7 +222,7 @@
 
 
 		<script src="assets/js/jquery.min.js"></script>
-		<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
+		<!--<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>-->
 		<script>
 			function initialize() {
 				var token = localStorage.getItem('token');
@@ -231,10 +232,19 @@
 				if(token) {
 					console.log(token);
 					try {
-						NexusConnectSDK.initialize(token);
-						NexusConnectSDK.preserveContext(true);
-						NexusConnectSDK.logAction('support2');
-						return token;
+						var nexus_sdk_url = localStorage.getItem('nexus_sdk_url');
+						var nexus_sdk_script = document.createElement('script');
+						nexus_sdk_script.setAttribute('src', nexus_sdk_url);
+						document.head.appendChild(nexus_sdk_script);
+						setTimeout(function () {
+							if(NexusConnectSDK) {
+								NexusConnectSDK.initialize(token);
+								NexusConnectSDK.preserveContext(true);
+								NexusConnectSDK.logAction('support2');
+								NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email"],document.getElementById("support2"));
+							}
+							return token;
+						},1000);
 					}catch(e){
 						console.log(e);
 					}
@@ -244,14 +254,14 @@
 			};
 
 			jQuery(document).ready(function() {
-				NexusConnectSDK.logContent("support2");
+				/*NexusConnectSDK.logContent("support2");
 				jQuery('#live-search').submit(function(event) {
 					event.preventDefault();
 					var input = $('.name').val();
 					if(input) {
 						window.location = "gpa.html?search=" + input;
 					}
-				});
+				});*/
 
 				jQuery('#tag1').click(function(event) {
 					event.preventDefault();

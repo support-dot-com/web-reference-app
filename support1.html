@@ -50,18 +50,18 @@
     </div>
 
     <!-- #live-search -->
-    <div id="live-search">
+    <!--<div id="live-search">
         <form role="search" method="get" id="searchform" class="clearfix" action="http://demo.herothemes.com/supportdesk/" autocomplete="off">
             <input class="name" type="text" onfocus="if (this.value == 'Search for Guided Path ...') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search for Guided Path ...';}" value="Search for Guided Path ..." name="s" id="s" />
             <input type="hidden" name="post_type[]" value="st_kb" />
         </form>
-    </div>
+    </div>-->
 </div>
 <!-- /#live-search -->
 <!-- /#page-header -->
 <!-- #features-list -->
 
-<div id="features-list">
+<!--<div id="features-list">
     <div class="ht-container">
         <div class="row stacked">
             <div class="column col-third">
@@ -83,8 +83,16 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!-- /#features-list -->
+<div id="features-list">
+    <div class="ht-container">
+        <div class="row stacked">
+            <div id="support1" style="height: 1160px;"></div>
+        </div>
+    </div>
+</div>
+
 <!-- #primary -->
 <div id="primary" class="sidebar-right clearfix">
     <div class="ht-container">
@@ -191,7 +199,7 @@
 
 
 <script src="assets/js/jquery.min.js"></script>
-<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
+<!--<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>-->
 <script>
     function initialize() {
         var token = localStorage.getItem('token');
@@ -201,11 +209,19 @@
         if(token) {
             console.log(token);
             try {
-                NexusConnectSDK.initialize(token);
-                NexusConnectSDK.preserveContext(true);
-                NexusConnectSDK.logAction('support1');
-
-                return token;
+                var nexus_sdk_url = localStorage.getItem('nexus_sdk_url');
+                var nexus_sdk_script = document.createElement('script');
+                nexus_sdk_script.setAttribute('src', nexus_sdk_url);
+                document.head.appendChild(nexus_sdk_script);
+                setTimeout(function () {
+                    if(NexusConnectSDK) {
+                        NexusConnectSDK.initialize(token);
+                        NexusConnectSDK.preserveContext(true);
+                        NexusConnectSDK.logAction('support1');
+                        NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email"],document.getElementById("support1"));
+                    }
+                    return token;
+                },1000);
             }catch(e){
                 console.log(e);
             }
@@ -214,7 +230,7 @@
         }
     };
 
-    jQuery(document).ready(function() {
+    /*jQuery(document).ready(function() {
         jQuery('#live-search').submit(function(event) {
             event.preventDefault();
             var input = $('.name').val();
@@ -245,7 +261,7 @@
         });
 
 
-    });
+    });*/
 </script>
 <!--<script type='text/javascript' src="http://demo.herothemes.com/supportdesk/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?d6b1d9"></script>-->
 <!--<script type='text/javascript'>-->
