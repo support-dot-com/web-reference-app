@@ -217,8 +217,9 @@
                 setTimeout(function () {
                     if(NexusConnectSDK) {
                         NexusConnectSDK.initialize(token);
+                        NexusConnectSDK.setDisplayOrder(["paths","search","categories","chat","call"]);
                         NexusConnectSDK.preserveContext(true);
-                        NexusConnectSDK.logAction('support1');
+                        NexusConnectSDK.logAction('support3');
                         NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email"],document.getElementById("support3"));
                     }
                     return token;
