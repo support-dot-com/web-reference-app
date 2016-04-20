@@ -50,12 +50,6 @@
 <div id="page-header" class="clearfix">
     <div class="ht-container-new">
         <h1>Results for: <span class="search_result"></span></h1>
-        <!--<div  id="live-search">
-            <form  role="search" method="get" id="searchform" class="clearfix" action="http://demo.herothemes.com/supportdesk/" autocomplete="off">
-                <input class="name" type="text" onfocus="if (this.value == 'Search for Guided Path ...') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search for Guided Path ...';}" value="Search for Guided Path ..." name="s" id="s" />
-                <input type="hidden" name="post_type[]" value="st_kb" />
-            </form>
-        </div>-->
     </div>
 
 </div>
@@ -224,11 +218,8 @@
 </footer>
 <!-- /#footer-bottom -->
 
-<!--<script src="assets/js/jquery.min.js"></script>-->
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<!--<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>-->
-<!--<script src="http://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>-->
 
 <script>
     function getParameterByName(name) {
@@ -242,7 +233,6 @@
         var token = localStorage.getItem('token');
         if(!token) {
             token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
-            //token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6IndlbmxhaXouZGV2LnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjlmNTdjYWY2LWE3NTUtNDdhYS1hNTBlLTM4Njg1NGUxZWE5OCIsImFwcCI6ImFwcCIsInZlciI6IjEuMCIsImlhdCI6MTQ1NDUyODA1OSwiYXVkIjpbImFwcCIsImFwaSJdLCJpc3MiOiJTdXBwb3J0LmNvbSJ9.yoJuPunKMTVHgbERzb8bpTFp7CoA8c0AteJ2xgBqja0';
         }
         var MachineOSDetails = detectMachineOS();
         var BrowserDetails = detectBrowserDetails();
@@ -293,48 +283,9 @@
                 }
                 return token;
             },1000);
-            /*
-            NexusConnectSDK.initialize(token);
-            NexusConnectSDK.preserveContext(true);
-            NexusConnectSDK.logAction('GPA');*/
-            /*var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
-            var param = getParameterByName('helpid') ? getParameterByName('helpid'): (getParameterByName('tag')?getParameterByName('tag'):getParameterByName('search'));
-            param = by + param;
-            console.log(param);
-
-            NexusConnectSDK.logAction(param);
-            if(!localStorage.getItem('Browser')){
-                var browserInfo =  {
-                    OS: BrowserDetails.browserName,
-                    Version: BrowserDetails.fullVersion
-                };
-                NexusConnectSDK.logDevice("Browser", browserInfo);
-                localStorage.setItem('Browser', browserInfo);
-            }
-
-            if(!localStorage.getItem('Machine')) {
-                var machineInfo = {
-                    OS: MachineOSDetails.OSName,
-                    Version: MachineOSDetails.OSVersion
-                };
-                NexusConnectSDK.logDevice("Machine", machineInfo);
-                localStorage.setItem('Machine', machineInfo);
-            }
-
-            if(!localStorage.getItem('App Data')) {
-                var AppInfo = {
-                    Name: 'Acme Website',
-                    Version: '3.0.54'
-                };
-                NexusConnectSDK.logContent("App Data", AppInfo);
-                localStorage.setItem('App Data', AppInfo);
-            }
-
-            return token;*/
         }catch(e){
             console.log(e);
         }
-
     };
 
     function detectMachineOS (){
