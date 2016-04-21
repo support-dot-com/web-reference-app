@@ -199,7 +199,7 @@
 		<!-- /#footer-bottom -->
 
 		<script src="assets/js/jquery.min.js"></script>
-		<!--<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>-->
+		<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
 		<script>
 			function initialize() {
 				var token = localStorage.getItem('token');
@@ -209,19 +209,14 @@
 				if(token) {
 					console.log(token);
 					try {
-						var nexus_sdk_url = localStorage.getItem('nexus_sdk_url');
+						/*var nexus_sdk_url = localStorage.getItem('nexus_sdk_url');
 						var nexus_sdk_script = document.createElement('script');
 						nexus_sdk_script.setAttribute('src', nexus_sdk_url);
-						document.head.appendChild(nexus_sdk_script);
-						setTimeout(function () {
-							if(NexusConnectSDK) {
-								NexusConnectSDK.initialize(token);
-								NexusConnectSDK.preserveContext(true);
-								NexusConnectSDK.logAction('support2');
-								NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email"],document.getElementById("support2"));
-							}
-							return token;
-						},1000);
+						document.head.appendChild(nexus_sdk_script);*/
+						NexusConnectSDK.initialize(token);
+						NexusConnectSDK.preserveContext(true);
+						NexusConnectSDK.logAction('support2');
+						NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email"],document.getElementById("support2"));
 					}catch(e){
 						console.log(e);
 					}

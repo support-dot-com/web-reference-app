@@ -220,7 +220,7 @@
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
+<script src="http://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
 <script>
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -239,51 +239,46 @@
 
         try {
             console.log('token',token);
-            var nexus_sdk_url = localStorage.getItem('nexus_sdk_url');
+            /*var nexus_sdk_url = localStorage.getItem('nexus_sdk_url');
             var nexus_sdk_script = document.createElement('script');
             nexus_sdk_script.setAttribute('src', nexus_sdk_url);
-            document.head.appendChild(nexus_sdk_script);
-            setTimeout(function () {
-                if(NexusConnectSDK) {
-                    NexusConnectSDK.initialize(token);
-                    NexusConnectSDK.setDisplayOrder(['paths']);
-                    NexusConnectSDK.preserveContext(true);
-                    NexusConnectSDK.logAction('GPA');
-                    var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
-                    var param = getParameterByName('helpid') ? getParameterByName('helpid'): (getParameterByName('tag')?getParameterByName('tag'):getParameterByName('search'));
-                    param = by + param;
-                    console.log(param);
+            document.head.appendChild(nexus_sdk_script);*/
+            NexusConnectSDK.initialize(token);
+            NexusConnectSDK.setDisplayOrder(['paths']);
+            NexusConnectSDK.preserveContext(true);
+            NexusConnectSDK.logAction('GPA');
+            var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
+            var param = getParameterByName('helpid') ? getParameterByName('helpid'): (getParameterByName('tag')?getParameterByName('tag'):getParameterByName('search'));
+            param = by + param;
+            console.log(param);
 
-                    NexusConnectSDK.logAction(param);
-                    if(!localStorage.getItem('Browser')){
-                        var browserInfo =  {
-                            OS: BrowserDetails.browserName,
-                            Version: BrowserDetails.fullVersion
-                        };
-                        NexusConnectSDK.logDevice("Browser", browserInfo);
-                        localStorage.setItem('Browser', browserInfo);
-                    }
+            NexusConnectSDK.logAction(param);
+            if(!localStorage.getItem('Browser')){
+                var browserInfo =  {
+                    OS: BrowserDetails.browserName,
+                    Version: BrowserDetails.fullVersion
+                };
+                NexusConnectSDK.logDevice("Browser", browserInfo);
+                localStorage.setItem('Browser', browserInfo);
+            }
 
-                    if(!localStorage.getItem('Machine')) {
-                        var machineInfo = {
-                            OS: MachineOSDetails.OSName,
-                            Version: MachineOSDetails.OSVersion
-                        };
-                        NexusConnectSDK.logDevice("Machine", machineInfo);
-                        localStorage.setItem('Machine', machineInfo);
-                    }
+            if(!localStorage.getItem('Machine')) {
+                var machineInfo = {
+                    OS: MachineOSDetails.OSName,
+                    Version: MachineOSDetails.OSVersion
+                };
+                NexusConnectSDK.logDevice("Machine", machineInfo);
+                localStorage.setItem('Machine', machineInfo);
+            }
 
-                    if(!localStorage.getItem('App Data')) {
-                        var AppInfo = {
-                            Name: 'Acme Website',
-                            Version: '3.0.54'
-                        };
-                        NexusConnectSDK.logContent("App Data", AppInfo);
-                        localStorage.setItem('App Data', AppInfo);
-                    }
-                }
-                return token;
-            },1000);
+            if(!localStorage.getItem('App Data')) {
+                var AppInfo = {
+                    Name: 'Acme Website',
+                    Version: '3.0.54'
+                };
+                NexusConnectSDK.logContent("App Data", AppInfo);
+                localStorage.setItem('App Data', AppInfo);
+            }
         }catch(e){
             console.log(e);
         }

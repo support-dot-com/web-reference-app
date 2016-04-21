@@ -151,7 +151,7 @@
 
 </body>
 <script src="assets/js/jquery.min.js"></script>
-<!--<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>-->
+<script src="https://static.nexus.support.com/client/v1/nexus-connect-sdk.js"></script>
 <script>
     function initialize() {
         localStorage.clear();
@@ -208,19 +208,15 @@
             }else {
                 localStorage.setItem('token', token);
                 $('#jwttoken').hide();
-                var parsedJWT = JSON.parse(window.atob(token.split(".")[1]));
+                /*var parsedJWT = JSON.parse(window.atob(token.split(".")[1]));
                 var nexus_sdk_url = 'https://static.' + parsedJWT.d + '/client/v1/nexus-connect-sdk.js';
                 localStorage.setItem('nexus_sdk_url', nexus_sdk_url);
                 var nexus_sdk_script = document.createElement('script');
                 nexus_sdk_script.setAttribute('src', nexus_sdk_url);
-                document.head.appendChild(nexus_sdk_script);
-                setTimeout(function () {
-                    if(NexusConnectSDK) {
-                        NexusConnectSDK.resetContext();
-                        NexusConnectSDK.clearContext();
-                        NexusConnectSDK.logAction('Home');
-                    }
-                },1000);
+                document.head.appendChild(nexus_sdk_script);*/
+                NexusConnectSDK.resetContext();
+                NexusConnectSDK.clearContext();
+                NexusConnectSDK.logAction('Home');
             }
         });
     });
