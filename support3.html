@@ -203,6 +203,7 @@
             NexusConnectSDK.initialize(token);
             NexusConnectSDK.preserveContext(true);
             NexusConnectSDK.logAction('support3');
+            NexusConnectSDK.setDisplayOrder(["search","paths","categories","contact_us"]);
             NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email"],document.getElementById("support3"));
 
             var by = 'Searched by Tag : ';
