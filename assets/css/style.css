@@ -106,6 +106,10 @@ table{border-collapse:collapse;border-spacing:0}
 .row.no-gutter .col-fifth, .row-fixed.no-gutter .col-fifth, .row-adaptive.no-gutter .col-fifth {width: 20%;}
 .row.no-gutter .col-sixth, .row-fixed.no-gutter .col-sixth, .row-adaptive.no-gutter .col-sixth {width: 16.66%;}
 
+.cursor-icon-pointer {
+	cursor: pointer !important;
+}
+
 @media only screen and (max-width: 720px) {
 .row { width: 100%; min-width: 0; margin-left: 0; margin-right: 0; }
 .row .row .column { padding: 0; }
@@ -1817,7 +1821,7 @@ a:hover {
 	float:none;
 }
 #features-list {
-	background:#F5F5F5;
+	background:#FFFFFF;
 	margin:-40px 0 40px;
 	padding:40px 0 10px;
 }
