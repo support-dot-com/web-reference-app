@@ -630,16 +630,16 @@ a:hover {
 -------------------------------------------------------------- */
 
 #site-container, .ht-container {
-	margin: 0 auto; 
+	margin: 0 auto;
 	max-width: 1000px;
 	padding:0 3%;
 }
 #site-container, .ht-container-new {
-	margin: 0 15%;
+	margin: 0 5%;
 	padding:0 3%;
 }
 #site-container {
-	background:#fff;	
+	background:#fff;
 }
 #primary, 
 #content, 

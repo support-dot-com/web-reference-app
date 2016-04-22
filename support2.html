@@ -22,7 +22,6 @@
 						<!-- #primary-nav -->
 						<nav id="primary-nav" role="navigation" class="clearfix">
 							<ul id="menu-primary-nav" class="nav sf-menu clearfix">
-								<li class="menu-item "><a href="#">Domains</a></li>
 								<li class="menu-item "><a href="#">Websites</a></li>
 								<li class="menu-item "><a href="#">Email</a></li>
 								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children "><a href="#">Support +</a>
@@ -53,43 +52,62 @@
 			<div style="margin-top:30px; margin-bottom:-20px; background:#86b854">
 				<div  class="row stacked" >
 					<div class="column col-tenth cursor-icon-pointer" style="margin-left:25%;" >
-						<a><div id="tag1" class="feature-icon cursor-icon-pointer"><i class="icon major fa fa-globe cursor-icon-pointer"></i></div></a>
-						<h3 id="tag1_name" contentEditable="true" class="cursor-icon-pointer">Domains</h3>
+						<a><div id="helpid1" class="feature-icon cursor-icon-pointer"><i class="icon major fa fa-globe cursor-icon-pointer"></i></div></a>
+						<h3 id="helpid1_name" contentEditable="true" class="cursor-icon-pointer">Domains</h3>
 					</div>
 
 					<div class="column col-tenth cursor-item cursor-icon-pointer">
-						<a><div id="tag2"  class="feature-icon cursor-icon-pointer"><i class="icon major fa fa-sitemap cursor-icon-pointer"></i></div></a>
-						<h3 id="tag2_name" contentEditable="true" class="cursor-icon-pointer">Websites</h3>
+						<a><div id="helpid2"  class="feature-icon cursor-icon-pointer"><i class="icon major fa fa-sitemap cursor-icon-pointer"></i></div></a>
+						<h3 id="helpid2_name" contentEditable="true" class="cursor-icon-pointer">Websites</h3>
 					</div>
 
 					<div class="column col-tenth cursor-item cursor-icon-pointer">
-						<a><div id="tag3" class="feature-icon cursor-icon-pointer"><i class="icon major fa-envelope-o cursor-icon-pointer"></i></div></a>
-						<h3 id="tag3_name" contentEditable="true" class="cursor-icon-pointer">Email</h3>
+						<a><div id="helpid3" class="feature-icon cursor-icon-pointer"><i class="icon major fa-envelope-o cursor-icon-pointer"></i></div></a>
+						<h3 id="helpid3_name" contentEditable="true" class="cursor-icon-pointer">Email</h3>
 					</div>
 
 					<div class="column col-tenth cursor-item cursor-icon-pointer">
-						<a><div id="tag4"  class="feature-icon cursor-icon-pointer"><i class="icon major fa-lock cursor-icon-pointer"></i></div></a>
-						<h3 id="tag4_name" contentEditable="true" class="cursor-icon-pointer">SSL</h3>
+						<a><div id="helpid4"  class="feature-icon cursor-icon-pointer"><i class="icon major fa-lock cursor-icon-pointer"></i></div></a>
+						<h3 id="helpid4_name" contentEditable="true" class="cursor-icon-pointer">SSL</h3>
 					</div>
 
 					<div class="column col-tenth cursor-item cursor-icon-pointer">
-						<a><div id="tag5" class="feature-icon cursor-icon-pointer"><i class="icon major fa-linux cursor-icon-pointer"></i></div></a>
-						<h3 id="tag5_name" contentEditable="true" class="cursor-icon-pointer">Linux</h3>
+						<a><div id="helpid5" class="feature-icon cursor-icon-pointer"><i class="icon major fa-linux cursor-icon-pointer"></i></div></a>
+						<h3 id="helpid5_name" contentEditable="true" class="cursor-icon-pointer">Linux</h3>
 					</div>
 				</div>
 			</div>
+			<div id="live-search">
+					<form role="search" method="get" id="searchform" class="clearfix" autocomplete="off">
+						<input class="name" type="text" onfocus="if (this.value == 'Search for Guided Path ...') {this.value = '';}" onblur="if (this.value == '')  {this.value = 'Search for Guided Path ...';}" value="Search for Guided Path ..." name="s" id="s" />
+						<input type="hidden" name="post_type[]" value="st_kb" />
+					</form>
+			</div>
 		</div>
-		<!-- #breadcrumbs -->
-		<div id="page-subnav" class="clearfix">
-			<div class="ht-container-new">
-				<div id="breadcrumbs"><a href="">Home</a><span class="sep">/</span>Search Results by<span style="font-weight:bold"; class="search_result_category">Tags</span> for:<span class="search_result">Domains, Websites, Email</span></div></div>
-		</div>
+
 		<!-- /#breadcrumbs -->
 		<!-- #features-list -->
-		<div id="features-list">
+		<div id="features-list" style=" background: #f1f4f8">
 			<div class="ht-container">
 				<div class="row stacked">
-					<div id="support2" style="height: 930px;"></div>
+					<div class="column col-third">
+						<a><div id="tag1" class="feature-icon"><img alt="" src="assets/images/kb-large.png" /></div></a>
+						<h3 id="tag1_name" contentEditable="true">Domains</h3>
+						<p contentEditable="true">Find your perfect domain name.</p>
+					</div>
+
+					<div class="column col-third">
+						<a><div id="tag2"  class="feature-icon"><img alt="" src="assets/images/forum-large.png" /></div></a>
+						<h3 id="tag2_name" contentEditable="true">Websites</h3>
+						<p>Get your website online today.</p>
+					</div>
+
+					<div class="column col-third">
+						<a><div id="tag3" class="feature-icon"><img alt="" src="assets/images/contact-large.png" /></div></a>
+						<h3 id="tag3_name" contentEditable="true">Email</h3>
+						<p>The right email makes a difference.</p>
+					</div>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -223,7 +241,6 @@
 					NexusConnectSDK.initialize(token);
 					NexusConnectSDK.preserveContext(true);
 					NexusConnectSDK.logAction('support2');
-					NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email"],document.getElementById("support2"));
 
 					var by = 'Searched by Tag : ';
 					var param = '"Domains","Websites","Email"';
@@ -440,38 +457,67 @@
 				});
 
 
+				$('#helpid1').click(function(event) {
+					event.preventDefault();
+					var input = $('#helpid1_name').text();
+					console.log(input, 'input');
+					window.location ="gpa.html?helpid=" + input;
+				});
+
+				$('#helpid2').click(function(event) {
+					event.preventDefault();
+					var input = $('#helpid2_name').text();
+					console.log(input, 'input');
+					window.location ="gpa.html?helpid=" + input;
+				});
+
+				$('#helpid3').click(function(event) {
+					event.preventDefault();
+					var input = $('#helpid3_name').text();
+					console.log(input, 'input');
+					window.location ="gpa.html?helpid=" + input;
+				});
+				$('#helpid4').click(function(event) {
+					event.preventDefault();
+					var input = $('#helpid4_name').text();
+					console.log(input, 'input');
+					window.location ="gpa.html?helpid=" + input;
+				});
+
+				$('#helpid5').click(function(event) {
+					event.preventDefault();
+					var input = $('#helpid5_name').text();
+					console.log(input, 'input');
+					window.location ="gpa.html?helpid=" + input;
+				});
+
+				$('#live-search').submit(function(event) {
+					event.preventDefault();
+					var input = $('.name').val();
+					if(input) {
+						window.location = "gpa.html?search=" + input;
+					}
+				});
+
 				$('#tag1').click(function(event) {
 					event.preventDefault();
 					var input = $('#tag1_name').text();
 					console.log(input, 'input');
-					window.location ="gpa.html?helpid=" + input;
+					window.location ="gpa.html?tag=" + input;
 				});
 
 				$('#tag2').click(function(event) {
 					event.preventDefault();
 					var input = $('#tag2_name').text();
 					console.log(input, 'input');
-					window.location ="gpa.html?helpid=" + input;
+					window.location ="gpa.html?tag=" + input;
 				});
 
 				$('#tag3').click(function(event) {
 					event.preventDefault();
 					var input = $('#tag3_name').text();
 					console.log(input, 'input');
-					window.location ="gpa.html?helpid=" + input;
-				});
-				$('#tag4').click(function(event) {
-					event.preventDefault();
-					var input = $('#tag4_name').text();
-					console.log(input, 'input');
-					window.location ="gpa.html?helpid=" + input;
-				});
-
-				$('#tag5').click(function(event) {
-					event.preventDefault();
-					var input = $('#tag5_name').text();
-					console.log(input, 'input');
-					window.location ="gpa.html?helpid=" + input;
+					window.location ="gpa.html?tag=" + input;
 				});
 			});
 		</script>
