@@ -4,7 +4,50 @@
     <link rel='stylesheet'  href="assets/css/style.css" type='text/css' media='all' />
     <link rel='stylesheet'  href="assets/css/style-custom.css" type='text/css' media='all' />
     <link rel='stylesheet'  href="assets/css/bbpress.css" type='text/css' media='all' />
+<style>
+    /* styles for '...' */
+    .block-with-text {
+        /* hide text if it more than N lines  */
+        overflow: hidden;
+        /* for set '...' in absolute position */
+        position: relative;
+        /* use this value to count block height */
+        line-height: 1.2em;
+        /* max-height = line-height (1.2) * lines max number (3) */
+        max-height: 3.6em;
+        /* fix problem when last visible word doesn't adjoin right side  */
+        text-align: justify;
+        /* place for '...' */
+        margin-right: -1em;
+        padding-right: 1em;
+    }
+    /* create the ... */
+    .block-with-text:before {
+        /* points in the end */
+        content: '...';
+        /* absolute position */
+        position: absolute;
+        /* set position to right bottom corner of block */
+        right: 0;
+        bottom: 0;
+    }
+    /* hide ... if we have text, which is less than or equal to max lines */
+    .block-with-text:after {
+        /* points in the end */
+        content: '';
+        /* absolute position */
+        position: absolute;
+        /* set position to right bottom corner of text */
+        right: 0;
+        /* set width and height */
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        /* bg color = bg color under block */
+        background: white;
+    }
 
+</style>
 <body onload="initialize()" class="home page page-id-11 page-template page-template-template-front-page page-template-template-front-page-php">
 <!-- #header -->
 <header id="header" class="clearfix" role="banner">
@@ -47,7 +90,7 @@
 <!-- #page-header -->
 <div id="page-header"class="clearfix" style="text-align:left">
     <div class="ht-container">
-        <h1>Calling Card</h1>
+        <h1>Contact Support</h1>
         <p>Need help with an Acme product?</p>
     </div>
 </div>
@@ -56,7 +99,7 @@
 <!-- #breadcrumbs -->
 <div id="page-subnav" class="clearfix">
     <div class="ht-container">
-        <div id="breadcrumbs"><a href="#Calling Card">Home</a><span class="sep">/</span>Calling Card</div></div>
+        <div id="breadcrumbs"><a href="#ContactSupport">Home</a><span class="sep">/</span>Contact Support</div></div>
 </div>
 <!-- /#breadcrumbs -->
 
@@ -66,21 +109,20 @@
 
         <!-- #content -->
         <section id="content" role="main">
-
-
-            <article id="post-33" class="post-33 page type-page status-publish hentry">
-                <div  class="modal2">
-                    <div style="width: 500px; height: 30px; padding: 5px 15px; border: 0px; border-radius: 2px 2px 0px 0px; background: rgb(99, 99, 99);cursor: move;">
-                        <span style="color: rgb(243, 243, 243); font-size: 15px; font-weight: bold; line-height: 15px;">Get Live Help</span>
-                        <span id="close_live_help"title="Hide" style="cursor: pointer; width: 15px; height: 15px; color: rgb(243, 243, 243); position: absolute; top: 2px; right: 10px; font-weight: bold; text-align: center;">x</span>
+            <div>
+                <div>
+                    <input id="consumerName" type="text" placeholder="Name"/>
+                    <div>
+                        <input id="complainSubject" type="text" placeholder="Subject" onkeydown="onSubjectChange();"/>
                     </div>
-                    <div style="position:absolute;width:530px;height:510px;" id="container_for_live_support"></div>
+                    <div id="container_for_autocomplete" style="margin-bottom: 10px; border: 1px solid #ccc; display: none;width: 300px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"></div>
                 </div>
-                <div class="content">
-                </div>
-            </article>
+                <textarea id="complainDesc" rows="4" cols="50">
 
-
+                </textarea>
+                <button onclick="onStartChat()">Start Chat</button>
+            </div>
+            <div id="container_for_selfservice" style="display:none; z-index: 1; background-color: #fff; width: calc(100% - 500px); height: 500px; border: 1px solid; position: absolute; top: 30%; left: 15%; box-shadow: 10px 10px 5px #888888;"></div>
         </section>
         <!-- #content -->
 
@@ -149,7 +191,6 @@
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport.html">Contact Support</a></li>
                 </ul>
                 <p class="nav-footer clearfix">Use of this site is subject to <a href="https://github.com/seaskymonster/web-reference-app/blob/master/Nexus%20Connect%20JavaScript%20Reference%20App%20EULA%202015-10-13.pdf">Terms and Conditions</a> and <a href="http://www.support.com/legal/site-privacy-policy/">Privacy Policy</a></p>
-
             </nav>
         </div>
     </div>
@@ -159,7 +200,7 @@
 
 
 <script src="assets/js/jquery.min.js"></script>
-<script src="https://static.nexus.support.com/client/v1.1.0/nexus-connect-sdk.js"></script>
+<script src="https://static.sid.dev.support.com/client/v1.1.0/nexus-connect-sdk.js"></script>
 <script>
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -178,7 +219,7 @@
             try {
                 NexusConnectSDK.initialize(token);
                 NexusConnectSDK.preserveContext(true);
-                NexusConnectSDK.logAction('support2');
+                NexusConnectSDK.logAction('ContactSupport');
                 return token;
             }catch(e){
                 console.log(e);
@@ -197,15 +238,35 @@
         var phone = Math.floor(Math.random() * 10000000000);
         var externalId = Math.floor((Math.random() * 10000));
         NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
-        NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'), {
-            'phone': '(408)-830-7906',
-            'skill': 'Sales',
-            'remoteConnectionType': 'remote'
-        });
-        $('.modal').show();
 
     });
+    
+    function onSubjectChange() {
+        setTimeout(function () {
+            var subject = $('#complainSubject').val();
+            NexusConnectSDK.getAutoComplete(subject, document.getElementById('container_for_autocomplete'), document.getElementById('container_for_selfservice'));
+        },0);
+    }
 
+    function hideSelfservice() {
+        $('#container_for_selfservice').css('display', 'none');
+    }
+
+    function onStartChat() {
+        NexusConnectSDK.setFirstName($('#consumerName').val());
+        NexusConnectSDK.showLiveHelp(null, {
+            mode: "chat",
+            phone:"(408)-830-7906",
+            skill:"Sales"
+        }).then(
+                function(){
+                    console.log("Success!");
+                },
+                function(error){
+                    console.log("Error:" + error);
+                }
+        );
+    }
 </script>
 </body>
 </html>
