@@ -183,15 +183,75 @@
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="https://static.nexus.support.com/client/v1.1.0/nexus-connect-sdk.js"></script>
 
 <script>
+    var token = localStorage.getItem('token');
+    if(!token) {
+        token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
+    }
+
+    function parseJwt (token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace('-', '+').replace('_', '/');
+        return JSON.parse(window.atob(base64));
+    }
+
+    function onNexusSDKLoadCallback() {
+        initialize();
+
+        var live_support_button_clicked = false;
+
+        $('#live_support_button').click(function () {
+            if(!live_support_button_clicked){
+                var fname = "John";
+                var lname = "Doe";
+                var email = 'john.doe@support.com';
+                var phone = Math.floor(Math.random()*10000000000);
+                var externalId = Math.floor((Math.random() * 10000));
+                NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
+                NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'), {
+                    mode: "",
+                    phone:"(408)-830-7906",
+                    skill:"Sales"
+                }).then(
+                        function(){
+                            console.log("Success!");
+                        },
+                        function(error){
+                            console.log("Error:" + error);
+                        }
+                );
+
+                $('.modal').show();
+                live_support_button_clicked = true;
+            }else{
+                $('.modal').hide();
+                live_support_button_clicked = false;
+            }
+
+        });
+
+
+        $('.draggable' ).draggable({
+
+        });
+
+        $('#close_live_help').click(function(){
+            $('.modal').hide();
+            live_support_button_clicked = false;
+        });
+    }
+
+    function loadNexusSDKScript(url) {
+        var s = document.createElement('script');
+        var urlToLoad = "https://static." + url + "/client/v1.1.0/nexus-connect-sdk.js";
+        s.setAttribute('src', urlToLoad);
+        localStorage.setItem('nexus_sdk_url', urlToLoad);
+        s.onload = onNexusSDKLoadCallback;
+        document.head.appendChild(s);
+    }
 
     function initialize() {
-        var token = localStorage.getItem('token');
-        if(!token) {
-            token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
-        }
         var MachineOSDetails = detectMachineOS();
         var BrowserDetails = detectBrowserDetails();
 
@@ -277,7 +337,6 @@
             var cs = clientStrings[id];
             if (cs.r.test(nAgt)) {
                 os = cs.s;
-//                console.log('os', os);
                 break;
             }
         }
@@ -371,52 +430,8 @@
 
 
     $(document).ready(function() {
-        var token = initialize();
-
-        var live_support_button_clicked = false;
-
-        $('#live_support_button').click(function () {
-            if(!live_support_button_clicked){
-                var fname = "John";
-                var lname = "Doe";
-                var email = 'john.doe@support.com';
-                var phone = Math.floor(Math.random()*10000000000);
-                var externalId = Math.floor((Math.random() * 10000));
-                NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
-                NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'), {
-                    mode: "",
-                    phone:"(408)-830-7906",
-                    skill:"Sales"
-                }).then(
-                        function(){
-                            console.log("Success!");
-                        },
-                        function(error){
-                            console.log("Error:" + error);
-                        }
-                );
-
-                $('.modal').show();
-                live_support_button_clicked = true;
-            }else{
-                $('.modal').hide();
-                live_support_button_clicked = false;
-            }
-
-        });
-
-
-        $('.draggable' ).draggable({
-
-        });
-
-        $('#close_live_help').click(function(){
-            $('.modal').hide();
-            // $('#live_support_button').css("color","orange");
-            live_support_button_clicked = false;
-        });
-
-
+        var parsedJWT = parseJwt(token);
+        loadNexusSDKScript(parsedJWT.d);
     });
 </script>
 </body>

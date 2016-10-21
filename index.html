@@ -151,34 +151,35 @@
 
 </body>
 <script src="assets/js/jquery.min.js"></script>
-<script src="https://static.nexus.support.com/client/v1.1.0/nexus-connect-sdk.js"></script>
+
 <script>
     function initialize() {
         localStorage.clear();
         localStorage.setItem('nexus_sdk_url', 'https://static.nexus.support.com/client/v1.1.0/nexus-connect-sdk.js');
-        /*NexusConnectSDK.resetContext();
+    }
+
+    function parseJwt (token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace('-', '+').replace('_', '/');
+        return JSON.parse(window.atob(base64));
+    }
+
+    function onNexusSDKLoadCallback() {
+        NexusConnectSDK.resetContext();
         NexusConnectSDK.clearContext();
-        NexusConnectSDK.logAction('Home');*/
-//        var token = localStorage.getItem('token');
-//        if(!token) {
-//            token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
-//        }
-//        if(token) {
-//            console.log(token);
-//            try {
-//                NexusConnectSDK.initialize(token);
-//                return token;
-//            }catch(e){
-//                console.log(e);
-//                $("#jwt_token_error").append(html);
-//            }
-//        }else{
-//            $("#jwt_token_error").append(html);
-//        }
-    };
+        NexusConnectSDK.logAction('Home');
+    }
+
+    function loadNexusSDKScript(url) {
+        var s = document.createElement('script');
+        var urlToLoad = "https://static." + url + "/client/v1.1.0/nexus-connect-sdk.js";
+        s.setAttribute('src', urlToLoad);
+        localStorage.setItem('nexus_sdk_url', urlToLoad);
+        s.onload = onNexusSDKLoadCallback;
+        document.head.appendChild(s);
+    }
 
     $(document).ready(function(){
-        //var token = initialize();
         var html = '<div class= "ht-container">' +
                 '<h3>Please Input your jwt token</h3>' +
                 '<form>' +
@@ -206,17 +207,10 @@
             if(!token || 0 === token.length){
                 $('#message').attr("placeholder", "Error: Your input is not valid, please type a valid token!");
             }else {
+                var parsedJWT = parseJwt(token);
+                loadNexusSDKScript(parsedJWT.d);
                 localStorage.setItem('token', token);
                 $('#jwttoken').hide();
-                /*var parsedJWT = JSON.parse(window.atob(token.split(".")[1]));
-                var nexus_sdk_url = 'https://static.' + parsedJWT.d + '/client/v1/nexus-connect-sdk.js';
-                localStorage.setItem('nexus_sdk_url', nexus_sdk_url);
-                var nexus_sdk_script = document.createElement('script');
-                nexus_sdk_script.setAttribute('src', nexus_sdk_url);
-                document.head.appendChild(nexus_sdk_script);*/
-                NexusConnectSDK.resetContext();
-                NexusConnectSDK.clearContext();
-                NexusConnectSDK.logAction('Home');
             }
         });
     });
