@@ -4,50 +4,7 @@
     <link rel='stylesheet'  href="assets/css/style.css" type='text/css' media='all' />
     <link rel='stylesheet'  href="assets/css/style-custom.css" type='text/css' media='all' />
     <link rel='stylesheet'  href="assets/css/bbpress.css" type='text/css' media='all' />
-<style>
-    /* styles for '...' */
-    .block-with-text {
-        /* hide text if it more than N lines  */
-        overflow: hidden;
-        /* for set '...' in absolute position */
-        position: relative;
-        /* use this value to count block height */
-        line-height: 1.2em;
-        /* max-height = line-height (1.2) * lines max number (3) */
-        max-height: 3.6em;
-        /* fix problem when last visible word doesn't adjoin right side  */
-        text-align: justify;
-        /* place for '...' */
-        margin-right: -1em;
-        padding-right: 1em;
-    }
-    /* create the ... */
-    .block-with-text:before {
-        /* points in the end */
-        content: '...';
-        /* absolute position */
-        position: absolute;
-        /* set position to right bottom corner of block */
-        right: 0;
-        bottom: 0;
-    }
-    /* hide ... if we have text, which is less than or equal to max lines */
-    .block-with-text:after {
-        /* points in the end */
-        content: '';
-        /* absolute position */
-        position: absolute;
-        /* set position to right bottom corner of text */
-        right: 0;
-        /* set width and height */
-        width: 1em;
-        height: 1em;
-        margin-top: 0.2em;
-        /* bg color = bg color under block */
-        background: white;
-    }
 
-</style>
 <body onload="initialize()" class="home page page-id-11 page-template page-template-template-front-page page-template-template-front-page-php">
 <!-- #header -->
 <header id="header" class="clearfix" role="banner">
@@ -115,9 +72,9 @@
                     <div>
                         <input id="complainSubject" type="text" placeholder="Subject" onkeydown="onSubjectChange();"/>
                     </div>
-                    <div id="container_for_autocomplete" style="margin-bottom: 10px; border: 1px solid #ccc; display: none;width: 300px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"></div>
+                    <div id="container_for_autocomplete"></div>
                 </div>
-                <textarea id="complainDesc" rows="4" cols="50">
+                <textarea id="complainDesc" rows="4" cols="50" style="height: 200px;">
 
                 </textarea>
                 <button onclick="onStartChat()">Start Chat</button>
@@ -243,8 +200,10 @@
     
     function onSubjectChange() {
         setTimeout(function () {
+            $('container_for_autocomplete').empty();
             var subject = $('#complainSubject').val();
-            NexusConnectSDK.getAutoComplete(subject, document.getElementById('container_for_autocomplete'), document.getElementById('container_for_selfservice'));
+            //["pathName", "stepName", "stepDescription", "pathDescription"]
+            NexusConnectSDK.getAutoComplete(subject ,document.getElementById('container_for_autocomplete'), document.getElementById('container_for_selfservice'));
         },0);
     }
 
