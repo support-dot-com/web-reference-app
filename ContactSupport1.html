@@ -31,7 +31,9 @@
                             <li class="menu-item"><a href="support3.html">Support3</a></li>
                             <li class="menu-item "><a href="CallingCard1.html">Calling Card 1</a></li>
                             <li class="menu-item "><a href="CallingCard2.html">Calling Card 2</a></li>
-                            <li class="menu-item "><a href="ContactSupport.html">Contact Support</a></li>
+                            <li class="menu-item "><a href="ContactSupport1.html">Contact Support 1</a></li>
+                            <li class="menu-item "><a href="ContactSupport2.html">Contact Support 2</a></li>
+                            <li class="menu-item "><a href="ContactSupport3.html">Contact Support 3</a></li>
                         </ul>
                     </li>
                     <li class="menu-item "><a href="IVR.html">IVR</a></li>
@@ -56,7 +58,7 @@
 <!-- #breadcrumbs -->
 <div id="page-subnav" class="clearfix">
     <div class="ht-container">
-        <div id="breadcrumbs"><a href="#ContactSupport">Home</a><span class="sep">/</span>Contact Support</div></div>
+        <div id="breadcrumbs"><a href="#ContactSupport">Home</a><span class="sep">/</span>Contact Support 1 (Auto-Complete Overlay with PathName, StepName & Description)</div></div>
 </div>
 <!-- /#breadcrumbs -->
 
@@ -70,9 +72,9 @@
                 <div>
                     <input id="consumerName" type="text" placeholder="Name"/>
                     <div>
-                        <input id="complainSubject" type="text" placeholder="Subject" onkeydown="onSubjectChange();"/>
+                        <input id="complainSubject" type="text" placeholder="Subject" onkeydown="onSubjectChange();" style="width: 503px;"/>
                     </div>
-                    <div id="container_for_autocomplete"></div>
+                    <div id="container_for_autocomplete" style="position: absolute; margin: -10px 0px 10px;"></div>
                 </div>
                 <textarea id="complainDesc" rows="4" cols="50" style="height: 200px;">
 
@@ -143,7 +145,9 @@
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="support1.html">Support</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="CallingCard1.html">Calling Card</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="IVR.html">IVR</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport.html">Contact Support</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport1.html">Contact Support 1</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport2.html">Contact Support 2</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport3.html">Contact Support 3</a></li>
                 </ul>
                 <p class="nav-footer clearfix">Use of this site is subject to <a href="https://github.com/seaskymonster/web-reference-app/blob/master/Nexus%20Connect%20JavaScript%20Reference%20App%20EULA%202015-10-13.pdf">Terms and Conditions</a> and <a href="http://www.support.com/legal/site-privacy-policy/">Privacy Policy</a></p>
             </nav>
@@ -201,7 +205,7 @@
             $('container_for_autocomplete').empty();
             var subject = $('#complainSubject').val();
             //["pathName", "stepName", "stepDescription", "pathDescription"]
-            NexusConnectSDK.getAutoComplete(subject ,document.getElementById('container_for_autocomplete'));
+            NexusConnectSDK.getAutoComplete(subject ,document.getElementById('container_for_autocomplete'), null, 'Recommended Articles');
         },0);
     }
 
