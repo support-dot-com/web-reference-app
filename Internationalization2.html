@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <meta charset="UTF-8" />
     <link rel='stylesheet'  href="assets/css/style.css" type='text/css' media='all' />
     <link rel='stylesheet'  href="assets/css/style-custom.css" type='text/css' media='all' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel='stylesheet'  href="assets/css/bbpress.css" type='text/css' media='all' />
-    <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
 
-
-<body  class="search search-results">
+<body class="home page page-id-11 page-template page-template-template-front-page page-template-template-front-page-php">
 <!-- #header -->
 <header id="header" class="clearfix" role="banner">
     <div class="ht-container">
@@ -49,99 +45,72 @@
     </div>
 </header>
 <!-- /#header -->
-
 <!-- #page-header -->
-<div id="page-header" class="clearfix">
-    <div class="ht-container-new">
-        <h1>Results for: <span class="search_result"></span></h1>
-    </div>
 
+<div id="page-header" class="clearfix">
+    <div class="ht-container">
+        <h1>Welcome to Acme Support</h1>
+        <h2>Questions about Acme products? We've got the resources to help you out.</h2>
+    </div>
 </div>
-<!-- /#page-header -->
 
 <!-- #breadcrumbs -->
 <div id="page-subnav" class="clearfix">
-    <div class="ht-container-new">
-        <div id="breadcrumbs"><a href="">Home</a><span class="sep">/</span>Search Results by<span style="font-weight:bold"; class="search_result_category"></span> for:<span class="search_result"></span></div></div>
+    <div class="ht-container">
+        <div id="breadcrumbs" style="height: 108px;"><input id="langCode" type="text" placeholder="Enter ISO Language Code"/><button onclick="NexusConnectSDK.setLanguage(document.getElementById('langCode').value ? document.getElementById('langCode').value : 'en'); NexusConnectSDK.showSelfHelpForTags(['Domains','Websites','Email'],document.getElementById('internationalization2'));">Submit</button><div>When no language code is specified then 'en' (ISO code for English language) will be set as default.</div></div>
+    </div>
+    <!-- /#breadcrumbs -->
+
+<!-- #features-list -->
+<div id="features-list" style=" background: #f1f4f8">
+    <div class="ht-container">
+        <div class="row stacked">
+            <div id="internationalization2" style="height: 1045px;"></div>
+        </div>
+    </div>
 </div>
-<!-- /#breadcrumbs -->
-
-
+<!-- /#features-list -->
 <!-- #primary -->
-<div id="primary" class="sidebar-right clearfix"  style="background: #f1f4f8; margin-top: -40px;">
-    <div class="ht-container-new"  >
+<div id="primary" class="sidebar-right clearfix">
+    <div class="ht-container">
         <!-- #content -->
-        <article id="content"  style = "width:70%; height:875px; " class="clearfix post-162 type-post status-publish format-standard has-post-thumbnail hentry category-how-to tag-howto tag-strategy-2 tag-support has_thumb">
-                <div id="jwt_token_error"></div>
-        </article>
+        <section id="content" role="main">
+            <div id="homepage-widgets" class="row stacked">
+                <div id="st_kb_articles_widget-2" class="column col-half widget st_kb_articles_widget clearfix">
+                    <h4 class="widget-title"><span>Popular Articles</span></h4>
+                    <ul class="clearfix">
+                        <li><a href="" rel="bookmark">Forwarding your domain name</a></li>
+                        <li><a href="" rel="bookmark">Customize navigation menus</a></li>
+                        <li><a href="" rel="bookmark">Setting up Email on Outlook 2013</a></li>
+                        <li><a href="" rel="bookmark">Downloading an SSL certificate</a></li>
+                    </ul>
+                </div>
+                <div id="bbp_topics_widget-2" class="column col-half widget widget_display_topics clearfix">
+                    <h4 class="widget-title"><span>Recent Forum Activity</span></h4>
+                    <ul>
+                        <li><a class="bbp-forum-title" href="">Troubleshooting FileZilla connections</a></li>
+                        <li><a class="bbp-forum-title" href="">Creating MySQL databases</a></li>
+                        <li><a class="bbp-forum-title" href="">Enable automatic backups</a></li>
+                        <li><a class="bbp-forum-title" href="">Restore a server from a snapshot</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
         <!-- /#content -->
-
         <!-- #sidebar -->
         <aside id="sidebar" role="complementary">
-            <div id="categories-4" class="widget widget_categories clearfix"><h4 class="widget-title">Categories</h4>		<ul>
-                <li class="cat-item cat-item-2"><a href="" >Announcements</a></li>
-                <li class="cat-item cat-item-3"><a href="" >How-To</a></li>
-                <li class="cat-item cat-item-4"><a href="" >Strategy</a></li>
-            </ul>
-            </div><div id="st_blog_widget-4" class="widget st_blog_widget clearfix">
-            <h4 class="widget-title">Latest News</h4>
-            <ul class="clearfix">
-                <li class="clearfix has_thumb">
-                    <div class="entry-thumb">
-                        <a href="" rel="nofollow">
-                            <img width="60" height="60" src="http://dr57u1lgwukd1.cloudfront.net/supportdesk/wp-content/uploads/sites/2/2013/03/photodune-4086091-hard-work-m-60x60.jpg?d6b1d9" class="attachment-post-thumbnail wp-post-image" alt="photodune-4086091-hard-work-m" />                        </a>
-                    </div>
-                    <a class="entry-title" href="" rel="bookmark">Take The Hardwork Out Of Support</a>
-                    <div class="entry-meta"><time datetime="2013-03-18">March 18, 2013</time></div>
-
-                </li>
-
-                <li class="clearfix has_thumb">
-                    <div class="entry-thumb">
-                        <a href="" rel="nofollow">
-                            <img width="60" height="60" src="http://dr57u1lgwukd1.cloudfront.net/supportdesk/wp-content/uploads/sites/2/2013/03/photodune-369921-handshaking-m-60x60.jpg?d6b1d9" class="attachment-post-thumbnail wp-post-image" alt="Handshaking" />                        </a>
-                    </div>
-                    <a class="entry-title" href="" rel="bookmark">Our New Partnership With Handshake</a>
-                    <div class="entry-meta"><time datetime="2013-03-18">March 18, 2013</time></div>
-
-                </li>
-
-                <li class="clearfix has_thumb">
-                    <div class="entry-thumb">
-                        <a href="" rel="nofollow">
-                            <img width="60" height="60" src="http://dr57u1lgwukd1.cloudfront.net/supportdesk/wp-content/uploads/sites/2/2013/03/support-desk-demo-02-60x60.jpg?d6b1d9" class="attachment-post-thumbnail wp-post-image" alt="support-desk-demo-02" />                        </a>
-                    </div>
-
-                    <a class="entry-title" href="" rel="bookmark">Real Solutions For Customers</a>
-                    <div class="entry-meta"><time datetime="2013-03-18">March 18, 2013</time></div>
-
-                </li>
-
-                <li class="clearfix has_thumb">
-                    <div class="entry-thumb">
-                        <a href="" rel="nofollow">
-                            <img width="60" height="60" src="http://dr57u1lgwukd1.cloudfront.net/supportdesk/wp-content/uploads/sites/2/2013/03/support-desk-demo-01-60x60.jpg?d6b1d9" class="attachment-post-thumbnail wp-post-image" alt="support-desk-demo-01" />                        </a>
-                    </div>
-
-                    <a class="entry-title" href="" rel="bookmark">New Support Team Member!</a>
-                    <div class="entry-meta"><time datetime="2013-03-17">March 17, 2013</time></div>
-
-                </li>
-            </ul>
-
-        </div><div id="tag_cloud-2" class="widget widget_tag_cloud clearfix"><h4 class="widget-title">Tags</h4><div class="tagcloud"><a href='' class='tag-link-5' title='3 topics' style='font-size: 11.75pt;'>announcement</a>
-            <a href='' class='tag-link-6' title='3 topics' style='font-size: 11.75pt;'>howto</a>
-            <a href='' class='tag-link-7' title='2 topic' style='font-size: 8pt;'>install</a>
-            <a href='' class='tag-link-8' title='3 topics' style='font-size: 11.75pt;'>strategy</a>
-            <a href='' class='tag-link-9' title='3 topics' style='font-size: 11.75pt;'>support</a>
-            <a href='' class='tag-link-10' title='3 topics' style='font-size: 11.75pt;'>supportdesk</a>
-            <a href='' class='tag-link-11' title='4 topics' style='font-size: 13pt;'>wordpress</a>
-            <a href='' class='tag-link-12' title='3 topics' style='font-size: 11.75pt;'>wordpress theme</a></div>
-        </div>	</aside>
+            <div id="text-2" class="boxed-orange widget widget_text clearfix"><h4 class="widget-title">Support Policy</h4>
+                <div class="textwidget"><p>Support staff monitor the community forum and email 9-5, Monday to Friday. Please be patient when posting an issue as staff may not be in the same timezone as you.</p>
+                </div>
+            </div>
+        </aside>
         <!-- /#sidebar -->
     </div>
 </div>
 <!-- /#primary -->
+<!-- /#feedback -->
+
+<!--<div  class="overlay"></div>-->
 <div style="display:none"  class="modal draggable">
     <div style="width: 270px; height: 30px; padding: 5px 15px; border: 0px; border-radius: 2px 2px 0px 0px; background: rgb(99, 99, 99);cursor: move;">
         <span style="color: rgb(243, 243, 243); font-size: 15px; font-weight: bold; line-height: 15px;">Get Live Help</span>
@@ -155,7 +124,7 @@
 <!-- #footer-bottom -->
 <footer id="footer" class="clearfix">
     <div id="footer-widgets" class="clearfix">
-        <div class="ht-container-new">
+        <div class="ht-container">
             <div class="row">
                 <div id="text-3" class="column col-third widget widget_text"><h4 class="widget-title"><span>About Acme</span></h4>
                     <div class="textwidget"><p>Acme is a domain register and web hosting company.</p>
@@ -168,7 +137,7 @@
                         <li class="clearfix has_thumb">
                             <div class="entry-thumb">
                                 <a href="" rel="nofollow">
-                                    <img width="60" height="60" src="http://dr57u1lgwukd1.cloudfront.net/supportdesk/wp-content/uploads/sites/2/2013/03/photodune-4086091-hard-work-m-60x60.jpg?d6b1d9" class="attachment-post-thumbnail wp-post-image" alt="photodune-4086091-hard-work-m" />                        </a>
+                                    <img width="60" height="60" src="assets/images/work.jpeg" class="attachment-post-thumbnail wp-post-image" alt="photodune-4086091-hard-work-m" />                        </a>
                             </div>
                             <a class="entry-title" href="" rel="bookmark">Take The Hardwork Out Of Support</a>
                             <div class="entry-meta"><time datetime="2013-03-18">March 18, 2013</time></div>
@@ -176,7 +145,7 @@
                         <li class="clearfix has_thumb">
                             <div class="entry-thumb">
                                 <a href="" rel="nofollow">
-                                    <img width="60" height="60" src="http://dr57u1lgwukd1.cloudfront.net/supportdesk/wp-content/uploads/sites/2/2013/03/photodune-369921-handshaking-m-60x60.jpg?d6b1d9" class="attachment-post-thumbnail wp-post-image" alt="Handshaking" />                        </a>
+                                    <img width="60" height="60" src="assets/images/handshake.jpg" class="attachment-post-thumbnail wp-post-image" alt="Handshaking" />                        </a>
                             </div>
                             <a class="entry-title" href="" rel="bookmark">Our New Partnership With Handshake</a>
                             <div class="entry-meta"><time datetime="2013-03-18">March 18, 2013</time></div>
@@ -192,8 +161,10 @@
             </div>
         </div>
     </div>
+
+
     <div id="footer-bottom" class="clearfix">
-        <div class="ht-container-new">
+        <div class="ht-container">
             <small id="copyright" role="contentinfo">Copyright © A Hero Theme.</small>
             <nav id="footer-nav" role="navigation">
                 <ul class="nav-footer clearfix">
@@ -208,8 +179,8 @@
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport1.html">Contact Support 1</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport2.html">Contact Support 2</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport3.html">Contact Support 3</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="Internationalization1.html">Internationalisation 1</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="Internationalization2.html">Internationalisation 2</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="Internationalization1.html">Internationalization 1</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="Internationalization2.html">Internationalization 2</a></li>
                 </ul>
                 <p class="nav-footer clearfix">Use of this site is subject to <a href="https://github.com/seaskymonster/web-reference-app/blob/master/Nexus%20Connect%20JavaScript%20Reference%20App%20EULA%202015-10-13.pdf">Terms and Conditions</a> and <a href="http://www.support.com/legal/site-privacy-policy/">Privacy Policy</a></p>
 
@@ -220,112 +191,13 @@
 </footer>
 <!-- /#footer-bottom -->
 
+
+
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="https://static.nexus.support.com/client/v1.1.0/nexus-connect-sdk.js"></script>
 
 <script>
-    var token = localStorage.getItem('token');
-    if(!token) {
-        token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
-    }
-
-    function parseJwt (token) {
-        var base64Url = token.split('.')[1];
-        var base64 = base64Url.replace('-', '+').replace('_', '/');
-        return JSON.parse(window.atob(base64));
-    }
-
-    function loadNexusSDKScript(url) {
-        var s = document.createElement('script');
-        var urlToLoad = "https://static." + url + "/client/v1.1.0/nexus-connect-sdk.js";
-        s.setAttribute('src', urlToLoad);
-        localStorage.setItem('nexus_sdk_url', urlToLoad);
-        s.onload = onNexusSDKLoadCallback;
-        document.head.appendChild(s);
-    }
-
-    function onNexusSDKLoadCallback() {
-        initialize();
-
-        setTimeout(function () {
-            var param = get_gpa_param();
-            if (param) {
-                $('.search_result').text(param);
-            }
-        }, 1000);
-        /*var param = get_gpa_param();
-         if(param) {
-         $('.search_result').text(param);
-         }*/
-        var live_support_button_clicked = false;
-
-        $('#live_support_button').click(function () {
-            //  token = initialize();
-            if (!live_support_button_clicked) {
-                var fname = "John";
-                var lname = "Doe";
-                var email = 'john.doe@support.com';
-                var phone = Math.floor(Math.random() * 10000000000);
-                var externalId = Math.floor((Math.random() * 10000));
-                NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
-                NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'), {
-                    mode: "",
-                    phone: "(408)-830-7906",
-                    skill: "Sales"
-                }).then(
-                        function () {
-                            console.log("Success!");
-                        },
-                        function (error) {
-                            console.log("Error:" + error);
-                        }
-                );
-
-//                NexusConnectSDK.logContent("GPA");
-                $('.modal').show();
-                // $('#live_support_button').css("color","grey");
-                live_support_button_clicked = true;
-            } else {
-                $('.modal').hide();
-                // $('#live_support_button').css("color","orange");
-                live_support_button_clicked = false;
-            }
-
-        });
-
-        jQuery('#live-search').submit(function (event) {
-            event.preventDefault();
-            var input = $('.name').val();
-            if (input) {
-                window.location = "gpa.html?search=" + input;
-//                NexusConnectSDK.logContent("breadcrumb");
-                //  console.log('param',input);
-//                NexusConnectSDK.logAction("Searched Content by :" +input );
-            }
-        });
-
-        $('.draggable').draggable({});
-
-        $('#close_live_help').click(function () {
-            $('.modal').hide();
-            // $('#live_support_button').css("color","orange");
-            live_support_button_clicked = false;
-        });
-
-        $('.exitHelp').click(function (e) {
-            console.log('sdk', NexusConnectSDK.isLiveHelpActive());
-            if (NexusConnectSDK.isLiveHelpActive()) {
-                NexusConnectSDK.exitHelp();
-            }
-        });
-    }
-
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    };
 
     function initialize() {
         var token = localStorage.getItem('token');
@@ -336,20 +208,16 @@
         var BrowserDetails = detectBrowserDetails();
 
         try {
-            console.log('token',token);
-            /*var nexus_sdk_url = localStorage.getItem('nexus_sdk_url');
-            var nexus_sdk_script = document.createElement('script');
-            nexus_sdk_script.setAttribute('src', nexus_sdk_url);
-            document.head.appendChild(nexus_sdk_script);*/
             NexusConnectSDK.initialize(token);
             NexusConnectSDK.setLanguage('en');
-            NexusConnectSDK.setDisplayOrder(['paths']);
             NexusConnectSDK.preserveContext(true);
-            NexusConnectSDK.logAction('GPA');
-            var by =  getParameterByName('helpid') ? 'Searched by HelpId : ': (getParameterByName('tag')? 'Searched by Tag : ': 'Searched Content by : ');
-            var param = getParameterByName('helpid') ? getParameterByName('helpid'): (getParameterByName('tag')?getParameterByName('tag'):getParameterByName('search'));
+            NexusConnectSDK.logAction('internationalization2');
+            NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email"],document.getElementById("internationalization2"));
+            NexusConnectSDK.setContactUsOptions({"phone":"1-800-GETHELP","skill":"sales","remoteConnectionType":"remote"});
+
+            var by = 'Searched by Tag : ';
+            var param = '"Domains","Websites","Email"';
             param = by + param;
-            console.log(param);
 
             NexusConnectSDK.logAction(param);
             if(!localStorage.getItem('Browser')){
@@ -378,7 +246,6 @@
                 NexusConnectSDK.logContent("App Data", AppInfo);
                 localStorage.setItem('App Data', AppInfo);
             }
-            NexusConnectSDK.setDisplayOrder(["paths","search","categories","contact_us"]);
         }catch(e){
             console.log(e);
         }
@@ -516,59 +383,63 @@
 
     }
 
-    function get_gpa_param(){
-        var param_helpid = getParameterByName('helpid');
-        var param_tag = getParameterByName('tag');
-        var param_search = getParameterByName('search');
-        var param;
-
-        if(param_helpid ||param_tag ||param_search){
-            if(param_helpid){
-                param = param_helpid;
-                $('.search_result_category').text("HelpId");
-            }else if(param_tag){
-                param = param_tag;
-                $('.search_result_category').text("Tag");
-            }else{
-                param = param_search;
-                $('.search_result_category').text("Content");
-            }
-
-        }else{
-            return null;
-        }
-
-        var html = '<p style="color:red"> Please input valid JWT TOKEN IN HOME PAGE.</p>';
-        try {
-            if(param_helpid){
-                NexusConnectSDK.showSelfHelpForId(param, document.getElementById('content'));
-            }else if(param_tag) {
-                NexusConnectSDK.showSelfHelpForTags([param], document.getElementById('content'));
-            }else{
-                NexusConnectSDK.showSelfHelpForSearch(param, document.getElementById('content'));
-            }
-        }catch(e){
-            console.log(e);
-            $("#jwt_token_error").append(html);
-        }
-
-        console.log('param',param);
-        return param;
-    }
 
     $(document).ready(function() {
-        var parsedJWT = parseJwt(token);
-        loadNexusSDKScript(parsedJWT.d);
+        var token = initialize();
+
+        var live_support_button_clicked = false;
+
+        $('#live_support_button').click(function () {
+            if(!live_support_button_clicked){
+                var fname = "John";
+                var lname = "Doe";
+                var email = 'john.doe@support.com';
+                var phone = Math.floor(Math.random()*10000000000);
+                var externalId = Math.floor((Math.random() * 10000));
+                NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
+                NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'), {
+                    mode: "",
+                    phone:"(408)-830-7906",
+                    skill:"Sales"
+                }).then(
+                        function(){
+                            console.log("Success!");
+                        },
+                        function(error){
+                            console.log("Error:" + error);
+                        }
+                );
+
+                $('.modal').show();
+                live_support_button_clicked = true;
+            }else{
+                $('.modal').hide();
+                live_support_button_clicked = false;
+            }
+
+        });
+
+
+        $('.draggable' ).draggable({
+
+        });
+
+        $('#close_live_help').click(function(){
+            $('.modal').hide();
+            // $('#live_support_button').css("color","orange");
+            live_support_button_clicked = false;
+        });
+
+
     });
 </script>
 </body>
 </html>
-
 <!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
 
-Page Caching using disk: enhanced (Requested URI contains query)
-Database Caching 13/51 queries in 0.017 seconds using disk
-Object Caching 2443/2572 objects using disk
+Page Caching using disk: enhanced
+Database Caching 16/29 queries in 0.008 seconds using disk
+Object Caching 1832/1850 objects using disk
 Content Delivery Network via Amazon Web Services: CloudFront: dr57u1lgwukd1.cloudfront.net
 
- Served from: demo.herothemes.com @ 2015-09-29 22:16:14 by W3 Total Cache -->
+ Served from: demo.herothemes.com @ 2015-09-23 19:03:07 by W3 Total Cache -->

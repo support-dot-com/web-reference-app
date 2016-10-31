@@ -51,7 +51,7 @@
 <!-- #page-header -->
 <div id="page-header"class="clearfix" style="text-align:left">
     <div class="ht-container">
-        <h1>Calling Card</h1>
+        <h1>Contact Support</h1>
         <p>Need help with an Acme product?</p>
     </div>
 </div>
@@ -60,7 +60,7 @@
 <!-- #breadcrumbs -->
 <div id="page-subnav" class="clearfix">
     <div class="ht-container">
-        <div id="breadcrumbs"><a href="#Calling Card">Home</a><span class="sep">/</span>Calling Card</div></div>
+        <div id="breadcrumbs"><a href="#ContactSupport">Home</a><span class="sep">/</span>Contact Support 1 (Auto-Complete Overlay with PathName, StepName & Description)</div></div>
 </div>
 <!-- /#breadcrumbs -->
 
@@ -70,25 +70,22 @@
 
         <!-- #content -->
         <section id="content" role="main">
-
-
-            <article id="post-33" class="post-33 page type-page status-publish hentry">
-                <div  class="modal2">
-                    <div style="width: 500px; height: 30px; padding: 5px 15px; border: 0px; border-radius: 2px 2px 0px 0px; background: rgb(99, 99, 99);cursor: move;">
-                        <span style="color: rgb(243, 243, 243); font-size: 15px; font-weight: bold; line-height: 15px;">Get Live Help</span>
-                        <span id="close_live_help"title="Hide" style="cursor: pointer; width: 15px; height: 15px; color: rgb(243, 243, 243); position: absolute; top: 2px; right: 10px; font-weight: bold; text-align: center;">x</span>
+            <div>
+                <div>
+                    <input id="consumerName" type="text" placeholder="Name"/>
+                    <div>
+                        <input id="complainSubject" type="text" placeholder="Subject" onkeydown="onSubjectChange();" style="width: 503px;"/>
                     </div>
-                    <div style="position:absolute;width:530px;height:510px;" id="container_for_live_support"></div>
+                    <div id="container_for_autocomplete" style="position: absolute; margin: -10px 0px 10px;"></div>
                 </div>
-                <div class="content">
-                </div>
-            </article>
+                <textarea id="complainDesc" rows="4" cols="50" style="height: 200px;">
 
+                </textarea>
+                <button onclick="onStartChat()">Start Chat</button>
+            </div>
 
         </section>
         <!-- #content -->
-
-
     </div>
 </div>
 <!-- #primary -->
@@ -157,7 +154,6 @@
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="Internationalization2.html">Internationalisation 2</a></li>
                 </ul>
                 <p class="nav-footer clearfix">Use of this site is subject to <a href="https://github.com/seaskymonster/web-reference-app/blob/master/Nexus%20Connect%20JavaScript%20Reference%20App%20EULA%202015-10-13.pdf">Terms and Conditions</a> and <a href="http://www.support.com/legal/site-privacy-policy/">Privacy Policy</a></p>
-
             </nav>
         </div>
     </div>
@@ -167,45 +163,8 @@
 
 
 <script src="assets/js/jquery.min.js"></script>
-
+<script src="https://static.sid.dev.support.com/client/v1.1.0/nexus-connect-sdk.js"></script>
 <script>
-    var token = localStorage.getItem('token');
-    if(!token) {
-        token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
-    }
-
-    function parseJwt (token) {
-        var base64Url = token.split('.')[1];
-        var base64 = base64Url.replace('-', '+').replace('_', '/');
-        return JSON.parse(window.atob(base64));
-    }
-
-    function loadNexusSDKScript(url) {
-        var s = document.createElement('script');
-        var urlToLoad = "https://static." + url + "/client/v1.1.0/nexus-connect-sdk.js";
-        s.setAttribute('src', urlToLoad);
-        localStorage.setItem('nexus_sdk_url', urlToLoad);
-        s.onload = onNexusSDKLoadCallback;
-        document.head.appendChild(s);
-    }
-
-    function onNexusSDKLoadCallback() {
-        initialize();
-
-        var fname = "John";
-        var lname = "Doe";
-        var email = 'john.doe@support.com';
-        var phone = Math.floor(Math.random() * 10000000000);
-        var externalId = Math.floor((Math.random() * 10000));
-        NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
-        NexusConnectSDK.showLiveHelp(document.getElementById('container_for_live_support'), {
-            'phone': '(408)-830-7906',
-            'skill': 'Sales',
-            'remoteConnectionType': 'remote'
-        });
-        $('.modal').show();
-    }
-
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -214,13 +173,17 @@
     };
 
     function initialize() {
+        var token = localStorage.getItem('token');
+        if(!token) {
+            token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoibXljb21wYW55IiwiZCI6Im5leHVzLnN1cHBvcnQuY29tIiwicHJtIjpbImxvZzoqIiwic2Vzc2lvbjpjb25uZWN0Il0sImp0aSI6IjYyMDhlYTRhLWJiZWEtNDQwYi05MjUzLTljYWJjYWNhMzMyYiIsImFwcCI6ImNydW1TUyIsInZlciI6ImNydW1TUyAxLjAiLCJwbHQiOiJicm93c2VyIiwiaWF0IjoxNDQzNTU1MDI1LCJhdWQiOlsiYXBwIiwiYXBpIl0sImlzcyI6IlN1cHBvcnQuY29tIn0.3qN0m6izKRyWGaP334yV-kudFTtZ6jQCpTM2Ne-wB9Y';
+        }
         if(token) {
             console.log(token);
             try {
                 NexusConnectSDK.initialize(token);
                 NexusConnectSDK.setLanguage('en');
                 NexusConnectSDK.preserveContext(true);
-                NexusConnectSDK.logAction('support2');
+                NexusConnectSDK.logAction('ContactSupport');
                 return token;
             }catch(e){
                 console.log(e);
@@ -232,10 +195,44 @@
     };
 
     $(document).ready(function() {
-        var parsedJWT = parseJwt(token);
-        loadNexusSDKScript(parsedJWT.d);
-    });
+        var token = initialize();
+        var fname = "John";
+        var lname = "Doe";
+        var email = 'john.doe@support.com';
+        var phone = Math.floor(Math.random() * 10000000000);
+        var externalId = Math.floor((Math.random() * 10000));
+        NexusConnectSDK.setEmail(email).setFirstName(fname).setLastName(lname).setPhone(phone).setExternalId(externalId);
 
+    });
+    
+    function onSubjectChange() {
+        setTimeout(function () {
+            $('container_for_autocomplete').empty();
+            var subject = $('#complainSubject').val();
+            //["pathName", "stepName", "stepDescription", "pathDescription"]
+            NexusConnectSDK.getAutoComplete(subject, null, 'Recommended Articles', document.getElementById('container_for_autocomplete'), null);
+        },0);
+    }
+
+    function hideSelfservice() {
+        $('#container_for_selfservice').css('display', 'none');
+    }
+
+    function onStartChat() {
+        NexusConnectSDK.setFirstName($('#consumerName').val());
+        NexusConnectSDK.showLiveHelp(null, {
+            mode: "chat",
+            phone:"(408)-830-7906",
+            skill:"Sales"
+        }).then(
+                function(){
+                    console.log("Success!");
+                },
+                function(error){
+                    console.log("Error:" + error);
+                }
+        );
+    }
 </script>
 </body>
 </html>
