@@ -53,17 +53,19 @@
         <h2>Questions about Acme products? We've got the resources to help you out.</h2>
     </div>
 </div>
-<!--&lt;!&ndash; #breadcrumbs &ndash;&gt;-->
-<!--<div id="page-subnav" class="clearfix">-->
-    <!--<div class="ht-container-new">-->
-        <!--<div id="breadcrumbs"><a href="">Home</a><span class="sep">/</span>Search Results by<span style="font-weight:bold"; class="search_result_category">Tags</span> for:<span class="search_result">Domains, Websites, Email</span></div></div>-->
-<!--</div>-->
-<!--&lt;!&ndash; /#breadcrumbs &ndash;&gt;-->
+
+<!-- #breadcrumbs -->
+<div id="page-subnav" class="clearfix">
+    <div class="ht-container">
+        <div id="breadcrumbs" style="height: 108px;"><input id="langCode" type="text" placeholder="Enter ISO Language Code"/><button onclick="NexusConnectSDK.setLanguage(document.getElementById('langCode').value ? document.getElementById('langCode').value : 'en'); NexusConnectSDK.showSelfHelpForTags(['Domains','Websites','Email'],document.getElementById('internationalization2'));">Submit</button><div>When no language code is specified then 'en' (ISO code for English language) will be set as default.</div></div>
+    </div>
+    <!-- /#breadcrumbs -->
+
 <!-- #features-list -->
 <div id="features-list" style=" background: #f1f4f8">
     <div class="ht-container">
         <div class="row stacked">
-            <div id="support1" style="height: 1045px;"></div>
+            <div id="internationalization2" style="height: 1045px;"></div>
         </div>
     </div>
 </div>
@@ -209,8 +211,9 @@
             NexusConnectSDK.initialize(token);
             NexusConnectSDK.setLanguage('en');
             NexusConnectSDK.preserveContext(true);
-            NexusConnectSDK.logAction('support1');
-            NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email"],document.getElementById("support1"));
+            NexusConnectSDK.logAction('internationalization2');
+            NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email"],document.getElementById("internationalization2"));
+            NexusConnectSDK.setContactUsOptions({"phone":"1-800-GETHELP","skill":"sales","remoteConnectionType":"remote"});
 
             var by = 'Searched by Tag : ';
             var param = '"Domains","Websites","Email"';
