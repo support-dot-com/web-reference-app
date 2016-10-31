@@ -80,6 +80,7 @@
 
                 </textarea>
                 <button onclick="onStartChat()">Start Chat</button>
+                <div id="container_for_selfservice" style="position: absolute; margin: -10px 0px 10px;"></div>
             </div>
 
         </section>
@@ -205,7 +206,7 @@
             $('container_for_autocomplete').empty();
             var subject = $('#complainSubject').val();
             //["pathName", "stepName", "stepDescription", "pathDescription"]
-            NexusConnectSDK.getAutoComplete(subject ,document.getElementById('container_for_autocomplete'), ["pathName"], 'Recommended Articles');
+            NexusConnectSDK.getAutoComplete(subject, ["pathName"], 'Recommended Articles', document.getElementById('container_for_autocomplete'), document.getElementById('container_for_selfservice'));
         },0);
     }
 

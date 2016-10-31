@@ -205,7 +205,7 @@
             $('container_for_autocomplete').empty();
             var subject = $('#complainSubject').val();
             //["pathName", "stepName", "stepDescription", "pathDescription"]
-            NexusConnectSDK.getAutoComplete(subject ,document.getElementById('container_for_autocomplete'), null, 'Recommended Articles');
+            NexusConnectSDK.getAutoComplete(subject, null, 'Recommended Articles', document.getElementById('container_for_autocomplete'), null);
         },0);
     }
 
