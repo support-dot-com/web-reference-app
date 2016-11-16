@@ -32,8 +32,8 @@
                             <li class="menu-item "><a href="ContactSupport1.html">Contacter Le Support 1</a></li>
                             <li class="menu-item "><a href="ContactSupport2.html">Contacter Le Support 2</a></li>
                             <li class="menu-item "><a href="ContactSupport3.html">Contacter Le Support 3</a></li>
-                            <li class="menu-item "><a href="i18nFrench.html">i18n (French)</a></li>
-                            <li class="menu-item "><a href="i18nGeneric.html">i18n (Generic)</a></li>
+                            <li class="menu-item "><a href="i18nFrench.html">Soutenir (French)</a></li>
+                            <li class="menu-item "><a href="i18nGeneric.html">Support (All Languages)</a></li>
                         </ul>
                     </li>
                     <li class="menu-item "><a id="live_support_button" >Get Live Help</a></li>
@@ -50,14 +50,15 @@
 <div id="page-header" class="clearfix">
     <div class="ht-container">
         <h1>Bienvenue au Support Acme</h1>
-        <h2>Questions sur les produits Acme? Nous avons les ressources pour vous aider.</h2>
+        <h2>Questions sur les produits Acme?</h2>
+        <h2 style="line-height: 0px;">Nous avons les ressources pour vous aider.</h2>
     </div>
 </div>
 
 <!-- #breadcrumbs -->
 <div id="page-subnav" class="clearfix">
     <div class="ht-container">
-        <div id="breadcrumbs" style="height: 108px;">Cette page est un exemple de la façon dont le libre-service se penchera lorsqu'il est intégré dans un site français. (Note: Cette page pointe vers https://mycompany.nexus.support.com.)</div>
+        <div id="breadcrumbs"><p style="margin: 0 0;">Cette page est un exemple de la façon dont le libre-service se penchera lorsqu'il est intégré dans un site français.</p><p style="margin: 0 0;">(Note: Cette page pointe vers https://mycompany.nexus.support.com.)</p></div>
     </div>
 </div>
 <!-- /#breadcrumbs -->
@@ -181,8 +182,8 @@
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport1.html">Contacter Le Support 1</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport2.html">Contacter Le Support 2</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="ContactSupport3.html">Contacter Le Support 3</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="i18nFrench.html">i18n (French)</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="i18nGeneric.html">i18n (Generic)</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="i18nFrench.html">Soutenir (French)</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page "><a href="i18nGeneric.html">Support (All Languages)</a></li>
                 </ul>
                 <p class="nav-footer clearfix">L'utilisation de ce site est soumise aux <a href="https://github.com/seaskymonster/web-reference-app/blob/master/Nexus%20Connect%20JavaScript%20Reference%20App%20EULA%202015-10-13.pdf">conditions d'utilisation </a> et <a href="http://www.support.com/legal/site-privacy-policy/">Politique de confidentialité</a></p>
 
@@ -211,7 +212,7 @@
             NexusConnectSDK.setLanguage('fr');
             NexusConnectSDK.preserveContext(true);
             NexusConnectSDK.logAction('Internationalization1');
-            NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email","internationalization","sample"],document.getElementById("Internationalization1"));
+            NexusConnectSDK.showSelfHelpForTags(["Domains","Websites","Email","Internationalization","Sample"],document.getElementById("Internationalization1"));
             NexusConnectSDK.setContactUsOptions({"phone":"1-800-GETHELP","skill":"sales","remoteConnectionType":"remote"});
 
             if(!localStorage.getItem('Browser')){
