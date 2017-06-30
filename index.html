@@ -161,6 +161,7 @@
 
 </body>
 <script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/common.js"></script>
 
 <script>
     function initialize() {
@@ -182,7 +183,7 @@
 
     function loadNexusSDKScript(url) {
         var s = document.createElement('script');
-        var urlToLoad = "https://static." + url + "/client/v1.1.1/nexus-connect-sdk.js";
+        var urlToLoad = "https://static." + url + "/client/"+AppCommon.SDKVersion+"/nexus-connect-sdk.js";
         s.setAttribute('src', urlToLoad);
         localStorage.setItem('nexus_sdk_url', urlToLoad);
         s.onload = onNexusSDKLoadCallback;

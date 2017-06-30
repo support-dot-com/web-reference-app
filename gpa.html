@@ -222,6 +222,7 @@
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="assets/js/common.js"></script>
 
 <script>
     var token = localStorage.getItem('token');
@@ -237,7 +238,7 @@
 
     function loadNexusSDKScript(url) {
         var s = document.createElement('script');
-        var urlToLoad = "https://static." + url + "/client/v1.1.0/nexus-connect-sdk.js";
+        var urlToLoad = "https://static." + url + "/client/"+AppCommon.SDKVersion+"/nexus-connect-sdk.js";
         s.setAttribute('src', urlToLoad);
         localStorage.setItem('nexus_sdk_url', urlToLoad);
         s.onload = onNexusSDKLoadCallback;
