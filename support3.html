@@ -168,7 +168,7 @@
 
     function loadNexusSDKScript(url) {
         var s = document.createElement('script');
-        var urlToLoad = "https://static." + url + "/client/v1.1.0/nexus-connect-sdk.js";
+        var urlToLoad = "https://static." + url + "/client/v1.1.1/nexus-connect-sdk.js";
         s.setAttribute('src', urlToLoad);
         localStorage.setItem('nexus_sdk_url', urlToLoad);
         s.onload = onNexusSDKLoadCallback;
