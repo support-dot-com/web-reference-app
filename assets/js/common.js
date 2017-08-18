@@ -1,7 +1,7 @@
 (function (module) {
   //TODO: Add all common helpers here
   function AppCommon() {
-    this.SDKVersion = "v1.1.1";
+    this.SDKVersion = "v2.0";
   }
 
   AppCommon.prototype.parseJwt  = function(token) {
